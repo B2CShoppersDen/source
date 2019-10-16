@@ -24,7 +24,7 @@ public class AddProductView {
 		String productDescription=sc.next();
 		
 		System.out.println("enter Product Price ");
-		String productPrice=sc.next();
+		double productPrice=sc.nextDouble();
 		
 		System.out.println("enter Product Category");
 		String productCategory=sc.next();

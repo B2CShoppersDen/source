@@ -4,6 +4,7 @@ import com.b2cshoppersden.model.AddProductModel;
 import com.b2cshoppersden.model.AdminLoginModel;
 import com.b2cshoppersden.model.DeleteProductModel;
 import com.b2cshoppersden.service.AdminServiceImpl;
+import com.b2cshoppersden.view.AddProductView;
 import com.b2cshoppersden.view.AdminLoginView;
 import com.b2cshoppersden.view.AdminOptionsView;
 import com.b2cshoppersden.view.DeleteProductView;
@@ -58,10 +59,10 @@ public class AdminController {
 		AdminServiceImpl adminService=new AdminServiceImpl(); 
 		try 
 		{
-			verf2 =  adminService.addServiceVerification(deleteProductModel);
+			verf2 =  adminService.deleteProductVerification(deleteProductModel);
 			if(verf2==true)
 			{
-				System.out.println("Entered Services are Added Successfully");
+				System.out.println("Products are deleted successfully");
 				AdminOptionsView adminOptionsView=new AdminOptionsView();
 				adminOptionsView.mainAdminOptionsView();
 			}
@@ -73,7 +74,7 @@ public class AdminController {
 		}catch(Exception e)
 		{
 			e.printStackTrace();
-			System.out.println("Sevices are not added");
+			System.out.println("Products are not deleted");
 			DeleteProductView deleteProductView=new DeleteProductView();
 			deleteProductView.mainDeleteProductView();
 	
@@ -81,10 +82,8 @@ public class AdminController {
 		
 	}
 
-	public void addProduct() {
+	public void addProduct(String productImageUrl,int productId,String productDescription,double productPrice,String productCategory,String productName) {
 		// TODO Auto-generated method stub
-		public void addProduct(String productImageUrl,int productId,String productDescription,double productPrice,String productCategory,String productName) 
-		{
 			// TODO Auto-generated method stub
 			AddProductModel addProductModel = new AddProductModel();
 			addProductModel.setProductImageUrl(productImageUrl);
@@ -94,34 +93,32 @@ public class AdminController {
 			addProductModel.setProductCategory(productCategory);
 			addProductModel.setProductName(productName);
 			
-	     	 boolean verf2;
+	     	 boolean verf3;
 			AdminServiceImpl adminService=new AdminServiceImpl(); 
 			try 
 			{
-				verf2 =  adminService.addServiceVerification(deleteProductModel);
-				if(verf2==true)
+				verf3 =  adminService.addProductVerification(addProductModel);
+				if(verf3==true)
 				{
-					System.out.println("Entered Services are Added Successfully");
+					System.out.println("Products are Added Successfully");
 					AdminOptionsView adminOptionsView=new AdminOptionsView();
 					adminOptionsView.mainAdminOptionsView();
 				}
 				else
 				{
 					ErrorView errorView=new ErrorView();
-					errorView.deleteProductError();
+					errorView.addProductError();
 				}
 			}catch(Exception e)
 			{
 				e.printStackTrace();
-				System.out.println("Sevices are not added");
-				DeleteProductView deleteProductView=new DeleteProductView();
-				deleteProductView.mainDeleteProductView();
+				System.out.println("Products are not added");
+				AddProductView addProductView=new AddProductView();
+				addProductView.mainAddProductView();
 		
 			}
 			
 		}
-
-
-	}
-
 }
+
+

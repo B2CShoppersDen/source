@@ -12,4 +12,9 @@ public class ErrorView {
 		
 	}
 
+	public void addProductError() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
