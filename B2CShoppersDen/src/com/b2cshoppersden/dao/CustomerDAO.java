@@ -1,4 +1,4 @@
-package com.b2cshoppers.dao;
+package com.b2cshoppersden.dao;
 
 public class CustomerDAO {
 
