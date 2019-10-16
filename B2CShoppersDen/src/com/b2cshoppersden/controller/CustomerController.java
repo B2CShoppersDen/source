@@ -1,5 +1,6 @@
 package com.b2cshoppersden.controller;
 
+<<<<<<< HEAD
 import com.b2cshoppersden.model.AddCustomerModel;
 import com.b2cshoppersden.model.AddToCartModel;
 import com.b2cshoppersden.model.CustomerLoginModel;
@@ -205,3 +206,8 @@ public class CustomerController {
 }
 
 
+=======
+public class CustomerController {
+
+}
+>>>>>>> branch 'master' of https://github.com/B2CShoppersDen/source.git

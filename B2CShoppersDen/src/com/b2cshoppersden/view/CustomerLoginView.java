@@ -1,5 +1,6 @@
 package com.b2cshoppersden.view;
 
+<<<<<<< HEAD
 import java.util.Scanner;
 
 import com.b2cshoppersden.controller.CustomerController;
@@ -53,3 +54,15 @@ import com.b2cshoppersden.controller.CustomerController;
 		
 	}
 
+=======
+public class CustomerLoginView {
+
+	public void mainCustomerView() {
+		// TODO Auto-generated method stub
+		
+		
+		
+	}
+
+}
+>>>>>>> branch 'master' of https://github.com/B2CShoppersDen/source.git

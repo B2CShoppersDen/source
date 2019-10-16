@@ -1,6 +1,7 @@
 package com.b2cshoppersden.model;
 
 public class AddCustomerModel {
+<<<<<<< HEAD
 	private String userName;
 	private String password;
 	private String email;
@@ -42,5 +43,7 @@ public class AddCustomerModel {
 		return "AddCustomerModel [userName=" + userName + ", password=" + password + ", email=" + email + ", age=" + age
 				+ ", gender=" + gender + "]";
 	}
+=======
+>>>>>>> branch 'master' of https://github.com/B2CShoppersDen/source.git
 
 }

@@ -7,4 +7,12 @@ public class ErrorView {
 		
 	}
 
+<<<<<<< HEAD
+=======
+	public void deleteProductError() {
+		// TODO Auto-generated method stub
+		
+	}
+
+>>>>>>> branch 'master' of https://github.com/B2CShoppersDen/source.git
 }
