@@ -1,5 +1,5 @@
 package com.b2cshoppersden.service;
 
-public interface CustomerService {
+public class CustomerServiceImpl {
 
 }

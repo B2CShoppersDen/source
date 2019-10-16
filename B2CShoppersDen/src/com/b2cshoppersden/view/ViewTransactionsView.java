@@ -1,11 +1,9 @@
 package com.b2cshoppersden.view;
 
-public class CustomerLoginView {
+public class ViewTransactionsView {
 
-	public void mainCustomerView() {
+	public void mainViewTransactionsView() {
 		// TODO Auto-generated method stub
-		
-		
 		
 	}
 
