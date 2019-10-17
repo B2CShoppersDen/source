@@ -23,7 +23,7 @@ public class CustomerDAO {
 			ConnectionManager connectionUtility=new ConnectionManager();
 			Connection connection=connectionUtility.openConnection();
 		
-			String query="SELECT * FROM Customer WHERE username='"+customerLoginModel.getUserName() +"' AND Password= '"+customerLoginModel.getPassword()+"'";
+			String query=";
 			PreparedStatement statement=connection.prepareStatement(query);
 		
 			ResultSet rs=statement.executeQuery();
@@ -86,7 +86,7 @@ public class CustomerDAO {
 		try {	
 			ConnectionManager connectionManager= new ConnectionManager();
 			Connection connection = connectionManager.openConnection();
-			String query="insert into buses values(?,?,?,?,?,?)";
+			String query="swlect into customer values(?,?,?,?,?,?)";
 			PreparedStatement statement = connection.prepareStatement(query);
 			statement.setInt(1, viewProductsModel.getProductId());
 			statement.setString(2,viewProductsModel.getProductImageUrl());
