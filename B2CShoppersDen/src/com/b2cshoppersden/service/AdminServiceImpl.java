@@ -1,12 +1,12 @@
 package com.b2cshoppersden.service;
 
 import java.sql.SQLException;
-
 import com.b2cshoppersden.dao.AdminDAO;
 import com.b2cshoppersden.model.AddProductModel;
 import com.b2cshoppersden.model.AdminLoginModel;
 import com.b2cshoppersden.model.DeleteProductModel;
-public class AdminServiceImpl {
+
+public class AdminServiceImpl implements AdminService {
 
 	AdminDAO adminDAO=new AdminDAO();
 	public boolean Verification(AdminLoginModel adminLoginModel) throws ClassNotFoundException, SQLException {
@@ -29,6 +29,7 @@ public class AdminServiceImpl {
 	
 	}
 
+	
 	
 
 }
