@@ -27,9 +27,6 @@ public class PaymentView {
 		
 	}
 
-<<<<<<< HEAD
-=======
-	
->>>>>>> branch 'master' of https://github.com/B2CShoppersDen/source.git
+
 
 }
