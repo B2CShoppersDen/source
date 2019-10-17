@@ -85,6 +85,7 @@ public class AdminController {
 	public void addProduct(String productImageUrl,int productId,String productDescription,double productPrice,String productCategory,String productName) {
 		// TODO Auto-generated method stub
 			// TODO Auto-generated method stub
+			
 			AddProductModel addProductModel = new AddProductModel();
 			addProductModel.setProductImageUrl(productImageUrl);
 			addProductModel.setProductId(productId);
