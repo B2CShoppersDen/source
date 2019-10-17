@@ -40,15 +40,17 @@ public class CustomerService_Imp  implements CustomerService,Comparator<Customer
 		
 	}
 
-	public boolean paymentVerification(PaymentModel paymentModel) throws ClassNotFoundException,SQLException {
-		// TODO Auto-generated method stub
-		return customerDAO.paymentVerification(paymentModel);
-	}
-
+	
 	@Override
 	public int compare(Customer arg0, Customer arg1) {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+
+	@Override
+	public boolean paymentVerification(PaymentModel paymentModel) throws ClassNotFoundException, SQLException {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 }

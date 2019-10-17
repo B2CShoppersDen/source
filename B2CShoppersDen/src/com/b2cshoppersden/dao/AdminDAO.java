@@ -26,6 +26,8 @@ public class AdminDAO {
 			String query="SELECT * FROM Admin WHERE AdminUserName='"+adminLoginModel.getAdminUserName() +"' AND Password= '"+adminLoginModel.getPassword()+"'";
 			PreparedStatement statement=connection.prepareStatement(query);
 		
+			
+			
 			ResultSet rs=statement.executeQuery();
 			while(rs.next())
 			{

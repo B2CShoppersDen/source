@@ -23,7 +23,7 @@ public class CustomerDAO {
 			ConnectionManager connectionUtility=new ConnectionManager();
 			Connection connection=connectionUtility.openConnection();
 		
-			String query="SELECT * FROM Customer WHERE username='"+customerLoginModel.getUserName() +"' AND Password= '"+customerLoginModel.getPassword()+"'";
+			String query=";
 			PreparedStatement statement=connection.prepareStatement(query);
 		
 			ResultSet rs=statement.executeQuery();
@@ -80,13 +80,17 @@ public class CustomerDAO {
 
 
 	@SuppressWarnings("static-access")	
+<<<<<<< HEAD
+	public boolean viewProductsVerification(ViewProductsModel viewProductsModel) throws ClassNotFoundException,SQLException {
+=======
 	public boolean viewProductsVerification(ViewProductsModel viewProductsModel) throws ClassNotFoundException ,SQLException{
+>>>>>>> branch 'master' of https://github.com/B2CShoppersDen/source.git
 		// TODO Auto-generated method stub
 		
 		try {	
 			ConnectionManager connectionManager= new ConnectionManager();
 			Connection connection = connectionManager.openConnection();
-			String query="insert into buses values(?,?,?,?,?,?)";
+			String query="swlect into customer values(?,?,?,?,?,?)";
 			PreparedStatement statement = connection.prepareStatement(query);
 			statement.setInt(1, viewProductsModel.getProductId());
 			statement.setString(2,viewProductsModel.getProductImageUrl());
@@ -106,16 +110,45 @@ public class CustomerDAO {
 		}
 
 
+<<<<<<< HEAD
+	
+=======
 
+>>>>>>> branch 'master' of https://github.com/B2CShoppersDen/source.git
 
-	public boolean addtoCartVerification(AddToCartModel addToCartModel) {
+	public boolean addtoCartVerification(AddToCartModel addToCartModel) throws ClassNotFoundException,SQLException {
 		// TODO Auto-generated method stub
-		return false;
-	}
+		
+		
+		try {	
+			ConnectionManager connectionManager= new ConnectionManager();
+			Connection connection = connectionManager.openConnection();
+			String query="insert into product values(?,?,?,?,?,?)";
+			PreparedStatement statement = connection.prepareStatement(query);
+			statement.setInt(1,addToCartModel.getProductId());
+			statement.setString(2,addToCartModel.getProductImageUrl());
+			statement.setString(3,addToCartModel.getProductDescription());
+			statement.setString(4,addToCartModel.getProductPrice());		
+			statement.setString(5,addToCartModel.getProductCategory());
+			statement.setString(6,addToCartModel.getProductName());
+			
+			statement.executeUpdate();
+					statement.close();
+					} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+					}
 
-	public boolean paymentVerification(PaymentModel paymentModel) {
-		// TODO Auto-generated method stub
-		return false;
-	}
+						return true;
+			}
 
-}
+
+		
+
+	}
+		
+		
+		
+		
+		
+

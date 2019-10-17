@@ -163,46 +163,8 @@ public class CustomerController {
 		}
 	
 	}
-	
-	
-	
-	public void Payment(String CardHolderName,long CreditCardNumber,int CVV) 
-	// TODO Auto-generated method stub
-	
-	
-	{
-		PaymentModel paymentModel = new PaymentModel();
-		paymentModel.setCardHolderName(CardHolderName);
-		paymentModel.setCreditCardNumber(CreditCardNumber);
-		paymentModel.setCVV(CVV);
-		
-        boolean verf4;
-		CustomerService_Imp customerService=new CustomerService_Imp(); 
-		try 
-		{
-			verf4 =customerService.paymentVerification(paymentModel);
-			if(verf4==true)
-			{
-				System.out.println("payment successful");
-				CustomerOptionsView customerOptionsView=new CustomerOptionsView();
-				customerOptionsView.mainCustomerOptionsView();
-			}
-			else
-			{
-				System.out.println("payment not successful");
-				PaymentView paymentView=new PaymentView();
-				paymentView.mainpaymentView();
-		
-			}
-		}catch(Exception e)
-		{
-			System.out.println("Invalid Selection");
-
-			
-		}
-	
-	}
-		
 }
-
-
+	
+	
+	
+	
