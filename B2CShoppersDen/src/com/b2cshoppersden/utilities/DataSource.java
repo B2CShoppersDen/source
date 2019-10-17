@@ -3,16 +3,25 @@ package com.b2cshoppersden.utilities;
 import java.util.ResourceBundle;
 
 public class DataSource {
-	
-	
-	
+
+	private String driver;
+	public String getDriver() {
+		return driver;
+	}
+
+
+
+	public void setDriver(String driver) {
+		this.driver = driver;
+	}
+
 	private String url;
 	private String username;
 	private String password;
 	
 	public DataSource() {
 		ResourceBundle resourceBundle=
-				ResourceBundle.getBundle("DataBase");
+				ResourceBundle.getBundle("DB");
 		
 		
 		this.url=resourceBundle.getString("url");

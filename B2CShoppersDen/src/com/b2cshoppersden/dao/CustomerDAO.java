@@ -22,7 +22,7 @@ public class CustomerDAO {
 		{
 
 			ConnectionManager connectionUtility=new ConnectionManager();
-			Connection connection=connectionUtility.openConnection();
+			Connection connection=connectionUtility.openConnection1();
 		
 			String query="";
 			PreparedStatement statement=connection.prepareStatement(query);
@@ -52,7 +52,7 @@ public class CustomerDAO {
 		try 
 		{
 			ConnectionManager connectionUtility=new ConnectionManager();
-			Connection con=connectionUtility.openConnection();
+			Connection con=connectionUtility.openConnection1();
 		
 			String querys = "INSERT INTO Customer VALUES ("
 			    + " ?, ?, ?, ?, ?)";
@@ -86,7 +86,7 @@ public class CustomerDAO {
 		
 		try {	
 			ConnectionManager connectionManager= new ConnectionManager();
-			Connection connection = connectionManager.openConnection();
+			Connection connection = connectionManager.openConnection1();
 			String query="swlect into customer values(?,?,?,?,?,?)";
 			PreparedStatement statement = connection.prepareStatement(query);
 			statement.setInt(1, viewProductsModel.getProductId());
@@ -115,7 +115,7 @@ public class CustomerDAO {
 		
 		try {	
 			ConnectionManager connectionManager= new ConnectionManager();
-			Connection connection = connectionManager.openConnection();
+			Connection connection = connectionManager.openConnection1();
 			String query="insert into product values(?,?,?,?,?,?)";
 			PreparedStatement statement = connection.prepareStatement(query);
 			statement.setInt(1,addToCartModel.getProductId());
@@ -142,7 +142,7 @@ public class CustomerDAO {
 		
 		try {	
 			ConnectionManager connectionManager= new ConnectionManager();
-			Connection connection = connectionManager.openConnection();
+			Connection connection = connectionManager.openConnection1();
 			String query="insert into product values(?,?,?,?,?,?)";
 			PreparedStatement statement = connection.prepareStatement(query);
 			statement.setInt(1,viewCartProductsModel.getProductId());

@@ -21,9 +21,9 @@ public class AdminDAO {
 		{
 
 			ConnectionManager connectionUtility=new ConnectionManager();
-			Connection connection=connectionUtility.openConnection();
+			Connection connection=connectionUtility.openConnection1();
 		
-			String query="SELECT * FROM Admin WHERE AdminUserName='"+adminLoginModel.getAdminUserName() +"' AND Password= '"+adminLoginModel.getPassword()+"'";
+			String query="SELECT * FROM admin WHERE AdminUserName='"+adminLoginModel.getAdminUserName() +"' AND Password= '"+adminLoginModel.getPassword()+"'";
 			PreparedStatement statement=connection.prepareStatement(query);
 		
 			
@@ -55,10 +55,9 @@ public class AdminDAO {
 		try 
 		{
 			ConnectionManager connectionManager=new ConnectionManager();
-			Connection con=connectionManager.openConnection();
+			Connection con=connectionManager.openConnection1();
 		
-			String querys = "INSERT INTO PRODUCTTABLE VALUES ("
-			    + " ?, ?, ?, ?, ?,?)";
+			String querys = "INSERT INTO product VALUES(?,?,?,?,?,?)";
 		// set all the preparedstatement parameters
 		PreparedStatement statement= con.prepareStatement(querys);
 
@@ -93,9 +92,9 @@ public class AdminDAO {
 			try 
 			{
 				ConnectionManager connectionManager=new ConnectionManager();
-				Connection connection=connectionManager.openConnection();
+				Connection connection=connectionManager.openConnection1();
 			
-				String querys = "DELETE FROM PRODUCTTABLE WHERE PRODUCTID=("+"?)";
+				String querys = "DELETE FROM product WHERE PRODUCTID=("+"?)";
 			// set all the preparedstatement parameters
 		
 				PreparedStatement statement = connection.prepareStatement(querys);
@@ -128,7 +127,7 @@ public class AdminDAO {
 		try 
 		{
 			ConnectionManager connectionManager=new ConnectionManager();
-			Connection connection=connectionManager.openConnection();
+			Connection connection=connectionManager.openConnection1();
 		
 			String querys = "";
 		// set all the preparedstatement parameters

@@ -28,7 +28,7 @@ public class CustomerAuthentication {
 		  if(result)
 			  System.out.print("valid user");	
 		  else
-			  System.out.print("INvalid user"); 
+			  System.out.print("Invalid user"); 
 	      }
 	
 	

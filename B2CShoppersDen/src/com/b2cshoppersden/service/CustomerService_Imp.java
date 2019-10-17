@@ -4,7 +4,6 @@ import java.sql.SQLException;
 import java.util.Comparator;
 
 import com.b2cshoppersden.dao.CustomerDAO;
-import com.b2cshoppersden.entities.Customer;
 import com.b2cshoppersden.model.AddCustomerModel;
 import com.b2cshoppersden.model.AddToCartModel;
 import com.b2cshoppersden.model.CustomerLoginModel;
@@ -13,7 +12,7 @@ import com.b2cshoppersden.model.ViewCartProductsModel;
 import com.b2cshoppersden.model.ViewProductsModel;
 
 
-public class CustomerService_Imp  implements CustomerService,Comparator<Customer>{
+public class CustomerService_Imp  implements CustomerService{
      
 	
 	CustomerDAO customerDAO=new CustomerDAO();
@@ -40,14 +39,6 @@ public class CustomerService_Imp  implements CustomerService,Comparator<Customer
 		return customerDAO.addtoCartVerification(addToCartModel);
 		
 	}
-
-	
-	@Override
-	public int compare(Customer arg0, Customer arg1) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
 	@Override
 	public boolean paymentVerification(PaymentModel paymentModel) throws ClassNotFoundException, SQLException {
 		// TODO Auto-generated method stub
