@@ -9,6 +9,7 @@ import com.b2cshoppersden.model.AddCustomerModel;
 import com.b2cshoppersden.model.AddToCartModel;
 import com.b2cshoppersden.model.CustomerLoginModel;
 import com.b2cshoppersden.model.PaymentModel;
+import com.b2cshoppersden.model.ViewCartProductsModel;
 import com.b2cshoppersden.model.ViewProductsModel;
 
 
@@ -51,6 +52,13 @@ public class CustomerService_Imp  implements CustomerService,Comparator<Customer
 	public boolean paymentVerification(PaymentModel paymentModel) throws ClassNotFoundException, SQLException {
 		// TODO Auto-generated method stub
 		return false;
+	}
+
+	public boolean ViewCartProductsVerification(ViewCartProductsModel viewCartProductsModel) throws ClassNotFoundException, SQLException {
+		// TODO Auto-generated method stub
+		return customerDAO.viewCartProductsVerification(viewCartProductsModel);
+		
+		
 	}
 
 }

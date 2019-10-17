@@ -9,6 +9,7 @@ import com.b2cshoppersden.model.AddCustomerModel;
 import com.b2cshoppersden.model.AddToCartModel;
 import com.b2cshoppersden.model.CustomerLoginModel;
 import com.b2cshoppersden.model.PaymentModel;
+import com.b2cshoppersden.model.ViewCartProductsModel;
 import com.b2cshoppersden.model.ViewProductsModel;
 import com.b2cshoppersden.utilities.ConnectionManager;
 
@@ -23,7 +24,7 @@ public class CustomerDAO {
 			ConnectionManager connectionUtility=new ConnectionManager();
 			Connection connection=connectionUtility.openConnection();
 		
-			String query=";
+			String query="";
 			PreparedStatement statement=connection.prepareStatement(query);
 		
 			ResultSet rs=statement.executeQuery();
@@ -80,11 +81,7 @@ public class CustomerDAO {
 
 
 	@SuppressWarnings("static-access")	
-<<<<<<< HEAD
 	public boolean viewProductsVerification(ViewProductsModel viewProductsModel) throws ClassNotFoundException,SQLException {
-=======
-	public boolean viewProductsVerification(ViewProductsModel viewProductsModel) throws ClassNotFoundException ,SQLException{
->>>>>>> branch 'master' of https://github.com/B2CShoppersDen/source.git
 		// TODO Auto-generated method stub
 		
 		try {	
@@ -95,7 +92,7 @@ public class CustomerDAO {
 			statement.setInt(1, viewProductsModel.getProductId());
 			statement.setString(2,viewProductsModel.getProductImageUrl());
 			statement.setString(3, viewProductsModel.getProductDescription());
-			statement.setString(4, viewProductsModel.getProductPrice());		
+			statement.setDouble(4, viewProductsModel.getProductPrice());		
 			statement.setString(5, viewProductsModel.getProductCategory());
 			statement.setString(6, viewProductsModel.getProductName());
 			
@@ -107,14 +104,10 @@ public class CustomerDAO {
 					}
 
 						return true;
-		}
+			}
 
 
-<<<<<<< HEAD
 	
-=======
-
->>>>>>> branch 'master' of https://github.com/B2CShoppersDen/source.git
 
 	public boolean addtoCartVerification(AddToCartModel addToCartModel) throws ClassNotFoundException,SQLException {
 		// TODO Auto-generated method stub
@@ -128,7 +121,7 @@ public class CustomerDAO {
 			statement.setInt(1,addToCartModel.getProductId());
 			statement.setString(2,addToCartModel.getProductImageUrl());
 			statement.setString(3,addToCartModel.getProductDescription());
-			statement.setString(4,addToCartModel.getProductPrice());		
+			statement.setDouble(4,addToCartModel.getProductPrice());		
 			statement.setString(5,addToCartModel.getProductCategory());
 			statement.setString(6,addToCartModel.getProductName());
 			
@@ -142,6 +135,32 @@ public class CustomerDAO {
 						return true;
 			}
 
+
+	public boolean viewCartProductsVerification(ViewCartProductsModel viewCartProductsModel) throws ClassNotFoundException,SQLException {
+		// TODO Auto-generated method stub
+		
+		
+		try {	
+			ConnectionManager connectionManager= new ConnectionManager();
+			Connection connection = connectionManager.openConnection();
+			String query="insert into product values(?,?,?,?,?,?)";
+			PreparedStatement statement = connection.prepareStatement(query);
+			statement.setInt(1,viewCartProductsModel.getProductId());
+			statement.setString(2,viewCartProductsModel.getProductImageUrl());
+			statement.setString(3,viewCartProductsModel.getProductDescription());
+			statement.setDouble(4,viewCartProductsModel.getProductPrice());		
+			statement.setString(5,viewCartProductsModel.getProductCategory());
+			statement.setString(6,viewCartProductsModel.getProductName());
+			
+			statement.executeUpdate();
+					statement.close();
+					} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+					}
+
+						return true;
+			}
 
 		
 

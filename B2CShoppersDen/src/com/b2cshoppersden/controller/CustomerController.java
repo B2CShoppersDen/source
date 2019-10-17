@@ -5,6 +5,7 @@ import com.b2cshoppersden.model.AddCustomerModel;
 import com.b2cshoppersden.model.AddToCartModel;
 import com.b2cshoppersden.model.CustomerLoginModel;
 import com.b2cshoppersden.model.PaymentModel;
+import com.b2cshoppersden.model.ViewCartProductsModel;
 import com.b2cshoppersden.model.ViewProductsModel;
 import com.b2cshoppersden.service.CustomerService_Imp;
 import com.b2cshoppersden.view.AddCustomerView;
@@ -85,11 +86,8 @@ public class CustomerController {
 		}
 	}
 	
-	public void ViewProducts(int productId,String productImageUrl,String productDescription,String productPrice,String productCategory,String productName) 
+	public void ViewProducts(String productImageUrl,int productId,String productDescription,double productPrice,String productCategory,String productName) {
 	// TODO Auto-generated method stub
-	
-	
-	{
 		ViewProductsModel viewProductsModel = new ViewProductsModel();
 		viewProductsModel.setProductId(productId);
 		viewProductsModel.setProductImageUrl(productImageUrl);
@@ -125,14 +123,14 @@ public class CustomerController {
 	}
 	
 	
-	public void AddToCart(int productId,String productImageUrl,String productDescription,String productPrice,String productCategory,String productName) 
+	public void AddToCart(String productImageUrl,int productId,String productDescription,double productPrice,String productCategory,String productName) 
 	// TODO Auto-generated method stub
 	
 	
 	{
 		AddToCartModel addToCartModel = new AddToCartModel();
-		addToCartModel.setProductId(productId);
 		addToCartModel.setProductImageUrl(productImageUrl);
+		addToCartModel.setProductId(productId);
 		addToCartModel.setProductDescription(productDescription);
 		addToCartModel.setProductPrice(productPrice);
 		addToCartModel.setProductCategory(productCategory);
@@ -163,7 +161,59 @@ public class CustomerController {
 		}
 	
 	}
-}
+
+	public void viewCartProducts(String productImageUrl, int productId, String productDescription, double productPrice,
+			String productCategory, String productName) {
+		// TODO Auto-generated method stub
+		
+		{
+			ViewCartProductsModel viewCartProductsModel = new ViewCartProductsModel();
+			viewCartProductsModel.setProductImageUrl(productImageUrl);
+			viewCartProductsModel.setProductId(productId);
+			viewCartProductsModel.setProductDescription(productDescription);
+			viewCartProductsModel.setProductPrice(productPrice);
+			viewCartProductsModel.setProductCategory(productCategory);
+			viewCartProductsModel.setProductName(productName);
+			
+	        boolean verf4;
+			CustomerService_Imp customerService=new CustomerService_Imp(); 
+			try 
+			{
+				verf4 =customerService.ViewCartProductsVerification(viewCartProductsModel);
+				if(verf4==true)
+				{
+					System.out.println("products are viewed successfuly");
+					CustomerOptionsView customerOptionsView=new CustomerOptionsView();
+					customerOptionsView.mainCustomerOptionsView();
+				}
+				else
+				{
+					System.out.println("products are not viewed");
+					ViewProductsView viewProductsView=new ViewProductsView();
+					viewProductsView.mainViewProductsView();
+			
+				}
+			}catch(Exception e)
+			{
+				System.out.println("Invalid Selection");
+				
+			}
+		
+		}
+
+		
+	}
+
+	
+	
+	
+
+
+	
+
+	
+	}
+
 	
 	
 	
