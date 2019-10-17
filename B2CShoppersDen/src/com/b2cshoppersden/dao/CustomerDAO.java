@@ -80,7 +80,7 @@ public class CustomerDAO {
 
 
 	@SuppressWarnings("static-access")	
-	public boolean viewProductsVerification(ViewProductsModel viewProductsModel) {
+	public boolean viewProductsVerification(ViewProductsModel viewProductsModel) throws ClassNotFoundException,SQLException {
 		// TODO Auto-generated method stub
 		
 		try {	
@@ -106,16 +106,41 @@ public class CustomerDAO {
 			}
 
 
-	}
+	
 
-	public boolean addtoCartVerification(AddToCartModel addToCartModel) {
+	public boolean addtoCartVerification(AddToCartModel addToCartModel) throws ClassNotFoundException,SQLException {
 		// TODO Auto-generated method stub
-		return false;
-	}
+		
+		
+		try {	
+			ConnectionManager connectionManager= new ConnectionManager();
+			Connection connection = connectionManager.openConnection();
+			String query="insert into product values(?,?,?,?,?,?)";
+			PreparedStatement statement = connection.prepareStatement(query);
+			statement.setInt(1,addToCartModel.getProductId());
+			statement.setString(2,addToCartModel.getProductImageUrl());
+			statement.setString(3,addToCartModel.getProductDescription());
+			statement.setString(4,addToCartModel.getProductPrice());		
+			statement.setString(5,addToCartModel.getProductCategory());
+			statement.setString(6,addToCartModel.getProductName());
+			
+			statement.executeUpdate();
+					statement.close();
+					} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+					}
 
-	public boolean paymentVerification(PaymentModel paymentModel) {
-		// TODO Auto-generated method stub
-		return false;
-	}
+						return true;
+			}
 
-}
+
+		
+
+	}
+		
+		
+		
+		
+		
+

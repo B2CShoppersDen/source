@@ -28,6 +28,10 @@ public class PaymentModel {
 		return "PaymentModel [CardHolderName=" + CardHolderName + ", CreditCardNumber=" + CreditCardNumber + ", CVV="
 				+ CVV + "]";
 	}
+	public void setToatlFareAmount(int totalFareAmount) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 	
 }
