@@ -1,18 +1,34 @@
 package com.b2cshoppersden.service;
 
+import java.sql.SQLException;
+
+import com.b2cshoppersden.dao.AdminDAO;
+import com.b2cshoppersden.model.AddProductModel;
 import com.b2cshoppersden.model.AdminLoginModel;
 import com.b2cshoppersden.model.DeleteProductModel;
-
 public class AdminServiceImpl {
 
-	public boolean Verification(AdminLoginModel adminLoginModel) {
+	AdminDAO adminDAO=new AdminDAO();
+	public boolean Verification(AdminLoginModel adminLoginModel) throws ClassNotFoundException, SQLException {
 		// TODO Auto-generated method stub
-		return false;
+	
+		return adminDAO.adminVerification(adminLoginModel);
+		
 	}
 
-	public boolean addServiceVerification(DeleteProductModel deleteProductModel) {
+	public boolean addProductVerification(AddProductModel addProductModel) throws ClassNotFoundException, SQLException {
 		// TODO Auto-generated method stub
-		return false;
+		
+		return adminDAO.addProductVerification(addProductModel);
 	}
+
+	public boolean deleteProductVerification(DeleteProductModel deleteProductModel) throws ClassNotFoundException, SQLException {
+		// TODO Auto-generated method stub
+		
+		return adminDAO.deleteProductVerification(deleteProductModel);
+	
+	}
+
+	
 
 }

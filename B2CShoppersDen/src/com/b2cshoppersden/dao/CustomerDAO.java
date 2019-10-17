@@ -80,7 +80,11 @@ public class CustomerDAO {
 
 
 	@SuppressWarnings("static-access")	
+<<<<<<< HEAD
 	public boolean viewProductsVerification(ViewProductsModel viewProductsModel) throws ClassNotFoundException,SQLException {
+=======
+	public boolean viewProductsVerification(ViewProductsModel viewProductsModel) throws ClassNotFoundException ,SQLException{
+>>>>>>> branch 'master' of https://github.com/B2CShoppersDen/source.git
 		// TODO Auto-generated method stub
 		
 		try {	
@@ -103,10 +107,14 @@ public class CustomerDAO {
 					}
 
 						return true;
-			}
+		}
 
 
+<<<<<<< HEAD
 	
+=======
+
+>>>>>>> branch 'master' of https://github.com/B2CShoppersDen/source.git
 
 	public boolean addtoCartVerification(AddToCartModel addToCartModel) throws ClassNotFoundException,SQLException {
 		// TODO Auto-generated method stub

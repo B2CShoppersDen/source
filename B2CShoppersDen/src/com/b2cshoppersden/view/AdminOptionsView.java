@@ -17,16 +17,14 @@ public class AdminOptionsView {
 		
 		switch(option)
 		{
-			case 1: ViewProductView viewProductView=new ViewProductView();
-					viewProductView.mainViewProductView();
-					break;
-			case 2:	AddProductView addProductView=new AddProductView();
+			
+			case 1:	AddProductView addProductView=new AddProductView();
 					addProductView.mainAddProductView();
 					break;
-			case 3: DeleteProductView deleteProductView=new DeleteProductView();
+			case 2: DeleteProductView deleteProductView=new DeleteProductView();
 					deleteProductView.mainDeleteProductView();
 					break;
-			case 4: ViewTransactionsView viewTransactionsView=new ViewTransactionsView();
+			case 3: ViewTransactionsView viewTransactionsView=new ViewTransactionsView();
 					viewTransactionsView.mainViewTransactionsView();
 					break;
 					
