@@ -80,7 +80,7 @@ public class CustomerDAO {
 
 
 	@SuppressWarnings("static-access")	
-	public boolean viewProductsVerification(ViewProductsModel viewProductsModel) {
+	public boolean viewProductsVerification(ViewProductsModel viewProductsModel) throws ClassNotFoundException ,SQLException{
 		// TODO Auto-generated method stub
 		
 		try {	
@@ -103,10 +103,10 @@ public class CustomerDAO {
 					}
 
 						return true;
-			}
+		}
 
 
-}
+
 
 	public boolean addtoCartVerification(AddToCartModel addToCartModel) {
 		// TODO Auto-generated method stub
