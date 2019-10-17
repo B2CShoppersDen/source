@@ -1,14 +1,8 @@
 package com.b2cshoppersden.model;
 
-public class AddToCartModel {
+public class ViewCartProductsModel {
 	
-	private int productId;
-	private String productImageUrl;
-	private String productDescription;
-	private double productPrice;
-	private String productCategory;
-	private String productName;
-	public int getProductId() {
+	   public int getProductId() {
 		return productId;
 	}
 	public void setProductId(int productId) {
@@ -45,9 +39,15 @@ public class AddToCartModel {
 	public void setProductName(String productName) {
 		this.productName = productName;
 	}
+	private int productId;
+	   private String productImageUrl;
+	   private String productDescription;
+	   private double productPrice;
+	   private String productCategory;
+	   private String productName;
 	@Override
 	public String toString() {
-		return "AddToCartModel [productId=" + productId + ", productImageUrl=" + productImageUrl
+		return "ViewCartProductsModel [productId=" + productId + ", productImageUrl=" + productImageUrl
 				+ ", productDescription=" + productDescription + ", productPrice=" + productPrice + ", productCategory="
 				+ productCategory + ", productName=" + productName + "]";
 	}

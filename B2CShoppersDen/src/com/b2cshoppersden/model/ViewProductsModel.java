@@ -5,7 +5,7 @@ public class ViewProductsModel {
    private int productId;
    private String productImageUrl;
    private String productDescription;
-   private String productPrice;
+   private double productPrice;
    private String productCategory;
    private String productName;
 public int getProductId() {
@@ -20,16 +20,11 @@ public String getProductImageUrl() {
 public void setProductImageUrl(String productImageUrl) {
 	this.productImageUrl = productImageUrl;
 }
-public String getProductDescription() {
-	return productDescription;
-}
-public void setProductDescription(String productDescription) {
-	this.productDescription = productDescription;
-}
-public String getProductPrice() {
+
+public double getProductPrice() {
 	return productPrice;
 }
-public void setProductPrice(String productPrice) {
+public void setProductPrice(double productPrice) {
 	this.productPrice = productPrice;
 }
 public String getProductCategory() {
@@ -50,5 +45,12 @@ public String toString() {
 			+ ", productDescription=" + productDescription + ", productPrice=" + productPrice + ", productCategory="
 			+ productCategory + ", productName=" + productName + "]";
 }
+public String getProductDescription() {
+	return productDescription;
+}
+public void setProductDescription(String productDescription) {
+	this.productDescription = productDescription;
+}
+
 
 }
