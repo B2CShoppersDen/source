@@ -29,6 +29,11 @@ public class AdminOptionsView {
 			case 4: ViewTransactionsView viewTransactionsView=new ViewTransactionsView();
 					viewTransactionsView.mainViewTransactionsView();
 					break;
+					
+					
+					
+					
+					
 }
 }
 }
