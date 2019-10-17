@@ -1,12 +1,12 @@
 package com.b2cshoppersden.model;
 
-public class AddCustomerModel {
-
-	private String userName;
-	private String password;
-	private String email;
-	private int age;
-	private String gender;
+public class CustomerLoginModel {
+	
+	private  String userName;
+	private String Password;
+	private String Email;
+	private int Age;
+	private String Gender;
 	public String getUserName() {
 		return userName;
 	}
@@ -14,35 +14,37 @@ public class AddCustomerModel {
 		this.userName = userName;
 	}
 	public String getPassword() {
-		return password;
+		return Password;
 	}
 	public void setPassword(String password) {
-		this.password = password;
+		Password = password;
 	}
 	public String getEmail() {
-		return email;
+		return Email;
 	}
 	public void setEmail(String email) {
-		this.email = email;
+		Email = email;
 	}
 	public int getAge() {
-		return age;
+		return Age;
 	}
 	public void setAge(int age) {
-		this.age = age;
+		Age = age;
 	}
 	public String getGender() {
-		return gender;
+		return Gender;
 	}
 	public void setGender(String gender) {
-		
-		this.gender = gender;
+		Gender = gender;
 	}
 	@Override
 	public String toString() {
-		return "AddCustomerModel [userName=" + userName + ", password=" + password + ", email=" + email + ", age=" + age
-				+ ", gender=" + gender + "]";
+		return "CustomerLoginModel [userName=" + userName + ", Password=" + Password + ", Email=" + Email + ", Age="
+				+ Age + ", Gender=" + Gender + "]";
+	}
+
+	
+		
 	}
 
 
-}
