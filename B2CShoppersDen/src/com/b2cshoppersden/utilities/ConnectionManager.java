@@ -8,26 +8,22 @@ import javax.sql.DataSource;
 
 public class ConnectionManager {
 	
-	
-	private static DataSource dataSource=new DataSource();
-	
-	private static Connection connection=null;
-	public static Connection openConnection() 
-			throws ClassNotFoundException,SQLException {
+		private static DataSource dataSource=new DataSource();
 		
-		Class.forName(dataSource.getDriver());
-		connection=DriverManager.getConnection(dataSource.getUrl(),dataSource.getUsername(),dataSource.getPassword());
-		return connection;
+		private static Connection connection=null;
+		public static Connection openConnection() 
+				throws ClassNotFoundException,SQLException {
+			
+			Class.forName(dataSource.getDriver());
+			connection=DriverManager.getConnection(dataSource.getUrl(),dataSource.getUsername(),dataSource.getPassword());
+			return connection;
+			
+		}
 		
-	}
-	
-	public static void closeConnection() throws SQLException{
-		
-		connection.close();
-	}
-
-
-}
+		public static void closeConnection() throws SQLException{
+			
+			connection.close();
+		}
 
 
 }

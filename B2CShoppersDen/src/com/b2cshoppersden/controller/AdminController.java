@@ -3,12 +3,14 @@ package com.b2cshoppersden.controller;
 import com.b2cshoppersden.model.AddProductModel;
 import com.b2cshoppersden.model.AdminLoginModel;
 import com.b2cshoppersden.model.DeleteProductModel;
+import com.b2cshoppersden.model.ViewTransactionsModel;
 import com.b2cshoppersden.service.AdminServiceImpl;
 import com.b2cshoppersden.view.AddProductView;
 import com.b2cshoppersden.view.AdminLoginView;
 import com.b2cshoppersden.view.AdminOptionsView;
 import com.b2cshoppersden.view.DeleteProductView;
 import com.b2cshoppersden.view.ErrorView;
+import com.b2cshoppersden.view.ViewTransactionsView;
 
 public class AdminController {
 
@@ -44,7 +46,7 @@ public class AdminController {
 		
 	}
 
-	public void deleteProduct(String productImageUrl,int productId,String productDescription,double productPrice,String productCategory,String productName) 
+	public void deleteProduct(String productImageUrl,int productId,String productDescription,double productPrice, String productCategory,String productName) 
 	{
 		// TODO Auto-generated method stub
 		DeleteProductModel deleteProductModel = new DeleteProductModel();
@@ -84,8 +86,7 @@ public class AdminController {
 
 	public void addProduct(String productImageUrl,int productId,String productDescription,double productPrice,String productCategory,String productName) {
 		// TODO Auto-generated method stub
-			// TODO Auto-generated method stub
-			
+
 			AddProductModel addProductModel = new AddProductModel();
 			addProductModel.setProductImageUrl(productImageUrl);
 			addProductModel.setProductId(productId);
@@ -119,6 +120,41 @@ public class AdminController {
 		
 			}
 			
+	
+	}
+
+	public void viewTransactions(int transactionId, int paymentId, String paymentType) {
+		// TODO Auto-generated method stub
+		
+		ViewTransactionsModel viewTransactionsModel = new ViewTransactionsModel();
+		viewTransactionsModel.setTransactionId(transactionId);
+		viewTransactionsModel.setPaymentId(paymentId);
+		viewTransactionsModel.setPaymentType(paymentType);
+		
+     	 boolean verf4;
+		AdminServiceImpl adminService=new AdminServiceImpl(); 
+		try 
+		{
+			verf4= adminService.viewTransactionsVerification(viewTransactionsModel);
+			if(verf4==true)
+			{
+				System.out.println("Transactions are Viewed Successfully");
+				AdminOptionsView adminOptionsView=new AdminOptionsView();
+				adminOptionsView.mainAdminOptionsView();
+			}
+			else
+			{
+				ErrorView errorView=new ErrorView();
+				errorView.viewTransactionsError();
+			}
+		}catch(Exception e)
+		{
+			e.printStackTrace();
+			System.out.println("Transactions cannot be Displayed");
+			ViewTransactionsView viewTransactionsView=new ViewTransactionsView();
+			viewTransactionsView.mainViewTransactionsView();
+	
+		}
 	
 	}
 }

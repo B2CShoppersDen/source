@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import com.b2cshoppersden.model.AddProductModel;
 import com.b2cshoppersden.model.AdminLoginModel;
 import com.b2cshoppersden.model.DeleteProductModel;
+import com.b2cshoppersden.model.ViewTransactionsModel;
 import com.b2cshoppersden.utilities.ConnectionManager;
 
 
@@ -117,5 +118,39 @@ public class AdminDAO {
 			}
 
 					return true;
-		}	}
+		}
+
+	public boolean viewTransactionsVerification(ViewTransactionsModel viewTransactionsModel) throws ClassNotFoundException ,SQLException{
+		// TODO Auto-generated method stub
+		
+		try 
+		{
+			ConnectionManager connectionManager=new ConnectionManager();
+			Connection connection=connectionManager.openConnection();
+		
+			String querys = "";
+		// set all the preparedstatement parameters
+	
+			PreparedStatement statement = connection.prepareStatement(querys);
+
+		statement.setInt(1, viewTransactionsModel.getTransactionId());
+		statement.setInt(2, viewTransactionsModel.getPaymentId());
+		statement.setString(3, viewTransactionsModel.getPaymentType());
+		
+
+		// execute the preparedstatement insert
+		statement.executeUpdate();
+
+		// st.close();
+		
+		statement.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+				return true;
+	}
+
+	}	
 

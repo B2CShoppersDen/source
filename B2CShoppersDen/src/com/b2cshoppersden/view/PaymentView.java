@@ -7,9 +7,5 @@ public class PaymentView {
 		
 	}
 
-	public void mainpaymentView() {
-		// TODO Auto-generated method stub
-		
-	}
 
 }

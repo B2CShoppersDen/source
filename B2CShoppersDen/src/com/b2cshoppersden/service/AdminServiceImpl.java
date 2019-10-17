@@ -5,6 +5,7 @@ import com.b2cshoppersden.dao.AdminDAO;
 import com.b2cshoppersden.model.AddProductModel;
 import com.b2cshoppersden.model.AdminLoginModel;
 import com.b2cshoppersden.model.DeleteProductModel;
+import com.b2cshoppersden.model.ViewTransactionsModel;
 
 public class AdminServiceImpl implements AdminService {
 
@@ -26,6 +27,14 @@ public class AdminServiceImpl implements AdminService {
 		// TODO Auto-generated method stub
 		
 		return adminDAO.deleteProductVerification(deleteProductModel);
+	
+	}
+
+	
+	public boolean viewTransactionsVerification(ViewTransactionsModel viewTransactionsModel) throws ClassNotFoundException, SQLException {
+		// TODO Auto-generated method stub
+		
+		return adminDAO.viewTransactionsVerification(viewTransactionsModel);
 	
 	}
 

@@ -11,20 +11,25 @@ public class DeleteProductView {
 	
 			Scanner sc=new Scanner(System.in);
 
-			System.out.println("======= Add Product View======");
+			System.out.println("======= Delete Product View======");
 			
 			
 			System.out.println("Enter Product Image Url ");
 			String productImageUrl=sc.next();
 			
 			System.out.println("enter Product Id ");
-			int Password=sc.nextInt();
+			int productId=sc.nextInt();
 			
 			System.out.println("enter Product Description ");
 			String productDescription=sc.next();
 			
+			System.out.println("enter Product Price");
+			double productPrice=sc.nextDouble();
+			
+			
 			System.out.println("enter Product Category");
-			String productCatrgory=sc.next();
+			String productCategory=sc.next();
+		
 			
 			System.out.println("enter Product Name ");
 			String productName=sc.next();
@@ -32,7 +37,7 @@ public class DeleteProductView {
 		
 		
 		AdminController adminController=new AdminController();
-		adminController.deleteProduct(productName, Password, productName, Password, productName, productName);	
+		adminController.deleteProduct(productImageUrl, productId, productDescription,productPrice,productCategory, productName);	
 		
 	}
 
