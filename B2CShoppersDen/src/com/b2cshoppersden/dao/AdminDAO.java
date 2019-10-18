@@ -10,6 +10,7 @@ import com.b2cshoppersden.model.AdminLoginModel;
 import com.b2cshoppersden.model.DeleteProductModel;
 import com.b2cshoppersden.model.ViewTransactionsModel;
 import com.b2cshoppersden.utilities.ConnectionManager;
+import com.b2cshoppersden.view.AdminLoginView;
 
 
 public class AdminDAO {
@@ -17,34 +18,32 @@ public class AdminDAO {
 	@SuppressWarnings({ "static-access", "unused" })
 	public boolean adminVerification(AdminLoginModel adminLoginModel) throws ClassNotFoundException ,SQLException{
 		// TODO Auto-generated method stub
+		//String adminUserName1=null;
+		//String password1=null;
 		try 
 		{
-
-			ConnectionManager connectionUtility=new ConnectionManager();
-			Connection connection=connectionUtility.openConnection1();
+			//ConnectionManager connectionUtility=new ConnectionManager();
+			Connection connection=ConnectionManager.openConnection1();
 		
-			String query="SELECT * FROM admin WHERE AdminUserName='"+adminLoginModel.getAdminUserName() +"' AND Password= '"+adminLoginModel.getPassword()+"'";
-			PreparedStatement statement=connection.prepareStatement(query);
-		
+			String query="SELECT * FROM ShoppersDen.admin WHERE admin_username='"+adminLoginModel.getAdminUserName() +"' AND admin_password= '"+adminLoginModel.getPassword()+"'";
 			
+			//String query1="select  admin_username,admin_password from admin ";
+			PreparedStatement statement1=connection.prepareStatement(query);
+			ResultSet rs=statement1.executeQuery();
 			
-			ResultSet rs=statement.executeQuery();
 			while(rs.next())
 			{
-				String username=rs.getString("Admin username");
-				String password=rs.getString("Password");
+				String adminUserName=rs.getString("admin_username");
+				String password=rs.getString("admin_password");
+				//System.out.println(adminUserName+" "+password);
 				return true;
 			}
 			rs.close();
 			connection.close();
-		} catch (ClassNotFoundException e) {
+		} catch (SQLException e) {
 		// TODO Auto-generated catch block
-			e.printStackTrace();
-			} catch (SQLException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
-
+			System.out.println("Enter your id or password correct");
+			}
 		return false;
 	}
 

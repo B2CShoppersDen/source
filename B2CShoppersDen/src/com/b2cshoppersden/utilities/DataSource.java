@@ -5,16 +5,6 @@ import java.util.ResourceBundle;
 public class DataSource {
 
 	private String driver;
-	public String getDriver() {
-		return driver;
-	}
-
-
-
-	public void setDriver(String driver) {
-		this.driver = driver;
-	}
-
 	private String url;
 	private String username;
 	private String password;
@@ -22,8 +12,7 @@ public class DataSource {
 	public DataSource() {
 		ResourceBundle resourceBundle=
 				ResourceBundle.getBundle("DB");
-		
-		
+		this.driver=resourceBundle.getString("driver");/////
 		this.url=resourceBundle.getString("url");
 		this.username=resourceBundle.getString("username");
 		this.password=resourceBundle.getString("password");
@@ -55,6 +44,16 @@ public class DataSource {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
+
+
+	public void setDriver(String driver) {
+		this.driver = driver;
+	}
+	public String getDriver() {
+		return driver;
+	}
+
 }
 
 

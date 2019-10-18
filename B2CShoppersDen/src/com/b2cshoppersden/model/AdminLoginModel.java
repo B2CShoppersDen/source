@@ -22,7 +22,7 @@ public class AdminLoginModel {
 	}
 	public void setPassword(String password) {
 		this.password = password;
-	}
+	}		
 	@Override
 	public String toString() {
 		return "AdminLoginModel [adminId=" + adminId + ", adminUserName=" + adminUserName + ", password=" + password

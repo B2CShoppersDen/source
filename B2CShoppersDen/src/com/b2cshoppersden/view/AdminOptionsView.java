@@ -8,10 +8,10 @@ public class AdminOptionsView {
 	{
 		
 		System.out.println("Select the option\n");
-		System.out.println("1.Add Admin");
-		System.out.println("2.Add Services");
-		System.out.println("3.Modify Services");
-		System.out.println("4.View Feedback");
+		System.out.println("1.Add product");
+		System.out.println("2.delete product");
+		System.out.println("3.view transactions");
+		
 		Scanner in = new Scanner(System.in); 
 		int option=in.nextInt();
 		

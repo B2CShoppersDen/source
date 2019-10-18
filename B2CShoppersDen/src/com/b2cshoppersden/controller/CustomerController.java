@@ -1,14 +1,14 @@
 package com.b2cshoppersden.controller;
 
 
-import com.b2cshoppersden.model.AddCustomerModel;
+
 import com.b2cshoppersden.model.AddToCartModel;
 import com.b2cshoppersden.model.CustomerLoginModel;
 import com.b2cshoppersden.model.PaymentModel;
 import com.b2cshoppersden.model.ViewCartProductsModel;
 import com.b2cshoppersden.model.ViewProductsModel;
 import com.b2cshoppersden.service.CustomerService_Imp;
-import com.b2cshoppersden.view.AddCustomerView;
+
 import com.b2cshoppersden.view.CustomerLoginView;
 import com.b2cshoppersden.view.CustomerOptionsView;
 import com.b2cshoppersden.view.ErrorView;
@@ -39,8 +39,8 @@ public class CustomerController {
 			customerView.mainCustomerOptionsView();
 		}else {
 			System.out.println("Login Unsuccessful");
-			CustomerLoginView adminLoginView=new CustomerLoginView(); 
-			adminLoginView.mainCustomerView();
+			CustomerLoginView customerLoginView=new CustomerLoginView(); 
+			customerLoginView.mainCustomerView();
 		}
 		
 		}catch(Exception e) {
@@ -50,41 +50,7 @@ public class CustomerController {
 		}
 	}
 
-	public void registerCustomer(String userName,String Password,String email,int age ,String gender)
-	{
-		AddCustomerModel  addcustomerModel=new AddCustomerModel();
-		addcustomerModel.setUserName(userName);
-		addcustomerModel.setPassword(Password);
-		addcustomerModel.setEmail(email);
-		addcustomerModel.setAge(age);
-		addcustomerModel.setGender(gender);
-		boolean verf1;
-		CustomerService_Imp customerService=new CustomerService_Imp(); 
-		
-		try {
-	verf1=customerService.customerStoreVerification(addcustomerModel);	
 	
-	// AddAdminView adminView=new AddAdminView();
-	
-	System.out.println(verf1);
-	System.out.println(addcustomerModel.getUserName());
-	System.out.println(addcustomerModel.getPassword());
-		if(verf1==true) {
-			System.out.println("Customer added Successfully");
-			
-			CustomerOptionsView customerOptionView=new CustomerOptionsView();
-			customerOptionView.mainCustomerOptionsView();
-		}else {
-			ErrorView errorView=new ErrorView();
-			errorView.authenticationError();
-		}
-		
-		}catch(Exception e) {
-			System.out.println("new customer is not added");
-			AddCustomerView addCustomerView=new AddCustomerView();
-			addCustomerView.mainAddCustomerView();
-		}
-	}
 	
 	public void ViewProducts(String productImageUrl,int productId,String productDescription,double productPrice,String productCategory,String productName) {
 	// TODO Auto-generated method stub
@@ -96,12 +62,12 @@ public class CustomerController {
 		viewProductsModel.setProductCategory(productCategory);
 		viewProductsModel.setProductName(productName);
 		
-        boolean verf2;
+        boolean verf1;
 		CustomerService_Imp customerService=new CustomerService_Imp(); 
 		try 
 		{
-			verf2 =customerService.viewProductsVerification(viewProductsModel);
-			if(verf2==true)
+			verf1 =customerService.viewProductsVerification(viewProductsModel);
+			if(verf1==true)
 			{
 				System.out.println("products are displayed");
 				CustomerOptionsView customerOptionsView=new CustomerOptionsView();
@@ -136,12 +102,12 @@ public class CustomerController {
 		addToCartModel.setProductCategory(productCategory);
 		addToCartModel.setProductName(productName);
 		
-        boolean verf3;
+        boolean verf2;
 		CustomerService_Imp customerService=new CustomerService_Imp(); 
 		try 
 		{
-			verf3 =customerService.addToCartVerification(addToCartModel);
-			if(verf3==true)
+			verf2 =customerService.addToCartVerification(addToCartModel);
+			if(verf2==true)
 			{
 				System.out.println("products are added successfuly");
 				CustomerOptionsView customerOptionsView=new CustomerOptionsView();
@@ -175,12 +141,12 @@ public class CustomerController {
 			viewCartProductsModel.setProductCategory(productCategory);
 			viewCartProductsModel.setProductName(productName);
 			
-	        boolean verf4;
+	        boolean verf3;
 			CustomerService_Imp customerService=new CustomerService_Imp(); 
 			try 
 			{
-				verf4 =customerService.ViewCartProductsVerification(viewCartProductsModel);
-				if(verf4==true)
+				verf3 =customerService.ViewCartProductsVerification(viewCartProductsModel);
+				if(verf3==true)
 				{
 					System.out.println("products are viewed successfuly");
 					CustomerOptionsView customerOptionsView=new CustomerOptionsView();

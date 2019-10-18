@@ -3,17 +3,18 @@ package com.b2cshoppersden.view;
 import java.util.Scanner;
 
 import com.b2cshoppersden.controller.CustomerController;
+import com.b2cshoppersden.controller.RegisterCustomerController;
 
 
 
-public class AddCustomerView {
+public class RegisterCustomerView {
 
-	public void mainAddCustomerView() {
+	public void mainRegisterCustomerView() {
 		// TODO Auto-generated method stub
 		
 		Scanner sc=new Scanner(System.in);
 
-		System.out.println("======= Add Customer View======");
+		System.out.println("======= Register Customer View======");
 		
 		String userName;
 		boolean validUserName=false;
@@ -36,8 +37,8 @@ public class AddCustomerView {
 		
 	
 	
-	CustomerController customerController=new CustomerController();
-	customerController.registerCustomer(userName, Password, email, age,gender);	
+	RegisterCustomerController registerCustomerController=new RegisterCustomerController();
+	registerCustomerController.registerCustomer(userName, Password, email, age,gender);	
 	
 
 }

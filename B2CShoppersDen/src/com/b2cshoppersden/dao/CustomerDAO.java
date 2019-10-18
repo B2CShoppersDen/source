@@ -5,7 +5,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import com.b2cshoppersden.model.AddCustomerModel;
 import com.b2cshoppersden.model.AddToCartModel;
 import com.b2cshoppersden.model.CustomerLoginModel;
 import com.b2cshoppersden.model.PaymentModel;
@@ -21,17 +20,18 @@ public class CustomerDAO {
 		try 
 		{
 
-			ConnectionManager connectionUtility=new ConnectionManager();
-			Connection connection=connectionUtility.openConnection1();
+			//ConnectionManager connectionUtility=new ConnectionManager();
+			Connection connection=ConnectionManager.openConnection1();
 		
-			String query="";
+			String query="SELECT * FROM ShoppersDen.customer WHERE user_name='"+customerLoginModel.getUserName() +"' AND user_password= '"+customerLoginModel.getPassword()+"'";
 			PreparedStatement statement=connection.prepareStatement(query);
 		
 			ResultSet rs=statement.executeQuery();
 			while(rs.next())
 			{
-				String username=rs.getString("username");
-				String password=rs.getString("Password");
+				String username=rs.getString("user_name");
+				String password=rs.getString("user_password");
+				System.out.println(username+""+password);
 				return true;
 				// validation logic
 				
@@ -39,45 +39,13 @@ public class CustomerDAO {
 			}
 			rs.close();
 			connection.close();
-		} catch (ClassNotFoundException | SQLException e) {
+		} catch (SQLException e) {
 
 			System.out.println("UserName or password is Incorrect");
 			
 			}return false; 
 }
 	
-	public boolean customerStoreVerification(AddCustomerModel addcustomerModel) throws ClassNotFoundException,SQLException{
-		// TODO Auto-generated method stub
-		
-		try 
-		{
-			ConnectionManager connectionUtility=new ConnectionManager();
-			Connection con=connectionUtility.openConnection1();
-		
-			String querys = "INSERT INTO Customer VALUES ("
-			    + " ?, ?, ?, ?, ?)";
-		// set all the preparedstatement parameters
-		PreparedStatement st = con.prepareStatement(querys);
-
-		st.setString(1, addcustomerModel.getUserName());
-		st.setString(2, addcustomerModel.getPassword());
-		st.setString(3, addcustomerModel.getEmail());
-		st.setInt(4, addcustomerModel.getAge());
-		st.setString(5, addcustomerModel.getGender());
-
-		// execute the preparedstatement insert
-		st.executeUpdate();
-
-		// st.close();
-		
-		st.close();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-				return true;
-		}
 
 
 	@SuppressWarnings("static-access")	

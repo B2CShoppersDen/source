@@ -19,10 +19,10 @@ public class AdminLoginView {
 			System.out.println("enter username");
 			String adminUserName=sc.next();
 			System.out.println("enter password");
-			String Password=sc.next();
+			String password=sc.next();
 			
 			AdminController adminController=new AdminController();
-			adminController.Verification(adminUserName,Password);
+			adminController.Verification(adminUserName,password);
 			
 		}
 }

@@ -1,6 +1,6 @@
 package com.b2cshoppersden.model;
 
-public class AddCustomerModel {
+public class RegisterCustomerModel {
 
 	private String userName;
 	private String password;

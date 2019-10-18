@@ -22,6 +22,7 @@ public class AdminController {
 		adminLoginModel.setPassword(password);
 		boolean verf ;
 		AdminServiceImpl userService=new AdminServiceImpl(); 
+	
 		try {
 	
 	verf=userService.Verification(adminLoginModel);	
@@ -33,14 +34,15 @@ public class AdminController {
 			AdminOptionsView adminView=new AdminOptionsView();
 			adminView.mainAdminOptionsView();
 		}else {
-			ErrorView errorView=new ErrorView();
-			errorView.authenticationError();
+			AdminLoginView adminLoginView=new AdminLoginView(); 
+			adminLoginView.mainAdminView();
 		}
 		
 		}catch(Exception e) {
+			e.printStackTrace();
 			System.out.println("User Authentication failed.");
-			AdminLoginView adminLoginView=new AdminLoginView(); 
-			adminLoginView.mainAdminView();
+			//AdminLoginView adminLoginView=new AdminLoginView(); 
+			//adminLoginView.mainAdminView();
 		
 		}
 		
