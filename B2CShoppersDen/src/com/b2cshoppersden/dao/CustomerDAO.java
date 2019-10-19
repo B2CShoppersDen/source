@@ -7,6 +7,7 @@ import java.sql.SQLException;
 
 import com.b2cshoppersden.model.AddToCartModel;
 import com.b2cshoppersden.model.CustomerLoginModel;
+import com.b2cshoppersden.model.DataModel;
 import com.b2cshoppersden.model.PaymentModel;
 import com.b2cshoppersden.model.ViewCartProductsModel;
 import com.b2cshoppersden.model.ViewProductsModel;
@@ -14,57 +15,69 @@ import com.b2cshoppersden.utilities.ConnectionManager;
 
 public class CustomerDAO {
      
-	@SuppressWarnings({ "static-access", "unused" })
+	//@SuppressWarnings({ "static-access", "unused" })
+	//public modelClassName customerVerification(CustomerLoginModel customerLoginModel) throws ClassNotFoundException,SQLException{
 	public boolean customerVerification(CustomerLoginModel customerLoginModel) throws ClassNotFoundException,SQLException{
 		// TODO Auto-generated method stub
+	
 		try 
 		{
-
+			String username;
+			String password;
 			//ConnectionManager connectionUtility=new ConnectionManager();
 			Connection connection=ConnectionManager.openConnection1();
 		
-			String query="SELECT * FROM ShoppersDen.customer WHERE user_name='"+customerLoginModel.getUserName() +"' AND user_password= '"+customerLoginModel.getPassword()+"'";
+			String query="SELECT * FROM ShoppersDen.credentials WHERE user_name='"+customerLoginModel.getUserName() +"' AND user_password= '"+customerLoginModel.getPassword()+"'";
 			PreparedStatement statement=connection.prepareStatement(query);
 		
 			ResultSet rs=statement.executeQuery();
 			while(rs.next())
 			{
-				String username=rs.getString("user_name");
-				String password=rs.getString("user_password");
+				username=rs.getString("user_name");
+				password=rs.getString("user_password");
 				System.out.println(username+""+password);
 				return true;
 				// validation logic
 				
-				
+				//DataModel dm=new DataModel(true,username);
+				//return dm;
 			}
+			
 			rs.close();
 			connection.close();
 		} catch (SQLException e) {
-
 			System.out.println("UserName or password is Incorrect");
-			
-			}return false; 
+			e.printStackTrace();
+			}
+		return false; //return model
 }
 	
 
 
-	@SuppressWarnings("static-access")	
+//	@SuppressWarnings("static-access")	
 	public boolean viewProductsVerification(ViewProductsModel viewProductsModel) throws ClassNotFoundException,SQLException {
 		// TODO Auto-generated method stub
 		
 		try {	
 			ConnectionManager connectionManager= new ConnectionManager();
 			Connection connection = connectionManager.openConnection1();
-			String query="swlect into customer values(?,?,?,?,?,?)";
+			String query="select * from products where product_name=?";
 			PreparedStatement statement = connection.prepareStatement(query);
-			statement.setInt(1, viewProductsModel.getProductId());
-			statement.setString(2,viewProductsModel.getProductImageUrl());
-			statement.setString(3, viewProductsModel.getProductDescription());
-			statement.setDouble(4, viewProductsModel.getProductPrice());		
-			statement.setString(5, viewProductsModel.getProductCategory());
-			statement.setString(6, viewProductsModel.getProductName());
-			
-			statement.executeUpdate();
+			statement.setString(1,viewProductsModel.getProductName());
+			//statement.setInt(6,viewProductsModel.getProductId());
+			//statement.setString(2,viewProductsModel.getProductImageUrl());
+			//statement.setString(3,viewProductsModel.getProductDescription());
+			//statement.setDouble(4,viewProductsModel.getProductPrice());		
+			//statement.setString(5,viewProductsModel.getProductCategory());
+		
+			ResultSet resultSet = statement.executeQuery();
+	        while(resultSet.next()) {
+	        	viewProductsModel.setProductName(resultSet.getString("product_name"));
+	        	viewProductsModel.setProductCategory(resultSet.getString("product_category"));
+	        	viewProductsModel.setProductImageUrl(resultSet.getString("product_imageurl"));
+	        	viewProductsModel.setProductPrice(resultSet.getDouble("product_price"));
+	        	viewProductsModel.setProductDescription(resultSet.getString("product_description"));
+	        }
 					statement.close();
 					} catch (SQLException e) {
 					// TODO Auto-generated catch block
@@ -84,16 +97,17 @@ public class CustomerDAO {
 		try {	
 			ConnectionManager connectionManager= new ConnectionManager();
 			Connection connection = connectionManager.openConnection1();
-			String query="insert into product values(?,?,?,?,?,?)";
+			String query="insert into shoppingcart values(?,?,?,?,?,?)";
 			PreparedStatement statement = connection.prepareStatement(query);
-			statement.setInt(1,addToCartModel.getProductId());
-			statement.setString(2,addToCartModel.getProductImageUrl());
-			statement.setString(3,addToCartModel.getProductDescription());
-			statement.setDouble(4,addToCartModel.getProductPrice());		
-			statement.setString(5,addToCartModel.getProductCategory());
-			statement.setString(6,addToCartModel.getProductName());
-			
+			statement.setString(1,addToCartModel.getProductName());
+			statement.setInt(2,addToCartModel.getProductId());
+			statement.setString(3,addToCartModel.getProductImageUrl());
+			statement.setString(4,addToCartModel.getProductDescription());
+			statement.setDouble(5,addToCartModel.getProductPrice());		
+			statement.setString(6,addToCartModel.getProductCategory());
+		          
 			statement.executeUpdate();
+	
 					statement.close();
 					} catch (SQLException e) {
 					// TODO Auto-generated catch block
@@ -111,14 +125,14 @@ public class CustomerDAO {
 		try {	
 			ConnectionManager connectionManager= new ConnectionManager();
 			Connection connection = connectionManager.openConnection1();
-			String query="insert into product values(?,?,?,?,?,?)";
+			String query="select * from  product values(?,?,?,?,?,?)";
 			PreparedStatement statement = connection.prepareStatement(query);
-			statement.setInt(1,viewCartProductsModel.getProductId());
-			statement.setString(2,viewCartProductsModel.getProductImageUrl());
-			statement.setString(3,viewCartProductsModel.getProductDescription());
-			statement.setDouble(4,viewCartProductsModel.getProductPrice());		
-			statement.setString(5,viewCartProductsModel.getProductCategory());
-			statement.setString(6,viewCartProductsModel.getProductName());
+			statement.setString(1,viewCartProductsModel.getProductName());
+			statement.setInt(2,viewCartProductsModel.getProductId());
+			statement.setString(3,viewCartProductsModel.getProductImageUrl());
+			statement.setString(4,viewCartProductsModel.getProductDescription());
+			statement.setDouble(5,viewCartProductsModel.getProductPrice());		
+			statement.setString(6,viewCartProductsModel.getProductCategory());
 			
 			statement.executeUpdate();
 					statement.close();

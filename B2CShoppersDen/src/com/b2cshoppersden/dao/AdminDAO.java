@@ -98,12 +98,12 @@ public class AdminDAO {
 		
 				PreparedStatement statement = connection.prepareStatement(querys);
 
-			statement.setString(1, deleteProductModel.getProductImageUrl());
-			statement.setInt(2, deleteProductModel.getProductId());
-			statement.setString(3, deleteProductModel.getProductDescription());
-			statement.setDouble(4, deleteProductModel.getProductPrice());
-			statement.setString(5, deleteProductModel.getProductCategory());
-			statement.setString(6, deleteProductModel.getProductName());
+				statement.setInt(1, deleteProductModel.getProductId());
+			//statement.setString(2, deleteProductModel.getProductImageUrl());
+			//statement.setString(3, deleteProductModel.getProductDescription());
+			//statement.setDouble(4, deleteProductModel.getProductPrice());
+			//statement.setString(5, deleteProductModel.getProductCategory());
+			//statement.setString(6, deleteProductModel.getProductName());
 			
 
 			// execute the preparedstatement insert
@@ -128,19 +128,22 @@ public class AdminDAO {
 			ConnectionManager connectionManager=new ConnectionManager();
 			Connection connection=connectionManager.openConnection1();
 		
-			String querys = "";
+			String querys = "select payment_id,payment_type,transaction_id from payment where payment_id=?";
 		// set all the preparedstatement parameters
 	
 			PreparedStatement statement = connection.prepareStatement(querys);
 
-		statement.setInt(1, viewTransactionsModel.getTransactionId());
-		statement.setInt(2, viewTransactionsModel.getPaymentId());
-		statement.setString(3, viewTransactionsModel.getPaymentType());
-		
+		//statement.setInt(1, viewTransactionsModel.getTransactionId());
+		statement.setInt(1, viewTransactionsModel.getPaymentId());
+		//statement.setString(3, viewTransactionsModel.getPaymentType());
 
 		// execute the preparedstatement insert
-		statement.executeUpdate();
-
+		ResultSet resultSet = statement.executeQuery();
+        while(resultSet.next()){
+        	viewTransactionsModel.setPaymentId(resultSet.getInt("payment_id"));
+        	viewTransactionsModel.setPaymentType(resultSet.getString("payment_type"));
+        	viewTransactionsModel.setTransactionId(resultSet.getInt("transaction_id"));      	
+        }
 		// st.close();
 		
 		statement.close();

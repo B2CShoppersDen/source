@@ -12,8 +12,8 @@ public class ConsoleUI {
 public void mainMenu() {
 		
 		System.out.println("Enter 1 if you are Admin");
-		System.out.println("Enter 2 if you are new Customer");
-		System.out.println("Enter 3 if you are registered Customer");
+		System.out.println("Enter 2 if you are already existing Customer");
+		System.out.println("Enter 3 if you are new Customer");
 		System.out.println("Enter your option");
 		
 		 Scanner in=new Scanner(System.in);

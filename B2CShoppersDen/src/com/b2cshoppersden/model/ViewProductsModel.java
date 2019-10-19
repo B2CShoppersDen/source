@@ -1,5 +1,7 @@
 package com.b2cshoppersden.model;
 
+import java.sql.Blob;
+
 public class ViewProductsModel {
 	
    private int productId;
@@ -17,8 +19,8 @@ public void setProductId(int productId) {
 public String getProductImageUrl() {
 	return productImageUrl;
 }
-public void setProductImageUrl(String productImageUrl) {
-	this.productImageUrl = productImageUrl;
+public void setProductImageUrl(String productImageUrl2) {
+	this.productImageUrl = productImageUrl2;
 }
 
 public double getProductPrice() {
