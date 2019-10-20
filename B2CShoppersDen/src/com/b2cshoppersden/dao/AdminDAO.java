@@ -60,12 +60,15 @@ public class AdminDAO {
 		// set all the preparedstatement parameters
 		PreparedStatement statement= con.prepareStatement(querys);
 
-		statement.setString(1, addProductModel.getProductImageUrl());
-		statement.setInt(2, addProductModel.getProductId());
+		
+		statement.setInt(1, addProductModel.getProductId());
+		statement.setString(2, addProductModel.getProductName());
 		statement.setString(3, addProductModel.getProductDescription());
 		statement.setDouble(4, addProductModel.getProductPrice());
 		statement.setString(5, addProductModel.getProductCategory());
-		statement.setString(6, addProductModel.getProductName());
+		statement.setString(6, addProductModel.getProductImageUrl());
+		
+		
 		
 
 		// execute the preparedstatement insert
@@ -82,8 +85,6 @@ public class AdminDAO {
 				return true;
 	}
 		
-	
-
 	@SuppressWarnings("static-access")
 	public boolean deleteProductVerification(DeleteProductModel deleteProductModel) throws ClassNotFoundException ,SQLException{
 		// TODO Auto-generated method stub
@@ -93,19 +94,13 @@ public class AdminDAO {
 				ConnectionManager connectionManager=new ConnectionManager();
 				Connection connection=connectionManager.openConnection1();
 			
-				String querys = "DELETE FROM product WHERE PRODUCTID=("+"?)";
+				String querys = "DELETE FROM shoppersden.product WHERE product_id=?";
 			// set all the preparedstatement parameters
 		
 				PreparedStatement statement = connection.prepareStatement(querys);
 
 				statement.setInt(1, deleteProductModel.getProductId());
-			//statement.setString(2, deleteProductModel.getProductImageUrl());
-			//statement.setString(3, deleteProductModel.getProductDescription());
-			//statement.setDouble(4, deleteProductModel.getProductPrice());
-			//statement.setString(5, deleteProductModel.getProductCategory());
-			//statement.setString(6, deleteProductModel.getProductName());
-			
-
+		
 			// execute the preparedstatement insert
 			statement.executeUpdate();
 

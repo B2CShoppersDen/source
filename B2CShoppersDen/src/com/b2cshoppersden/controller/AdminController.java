@@ -48,16 +48,17 @@ public class AdminController {
 		
 	}
 
-	public void deleteProduct(String productImageUrl,int productId,String productDescription,double productPrice, String productCategory,String productName) 
+	//public void deleteProduct(String productImageUrl,int productId,String productDescription,double productPrice, String productCategory,String productName) 
+	public void deleteProduct(int productId)
 	{
 		// TODO Auto-generated method stub
-		DeleteProductModel deleteProductModel = new DeleteProductModel();
-		deleteProductModel.setProductImageUrl(productImageUrl);
+		DeleteProductModel deleteProductModel = new DeleteProductModel();																					
 		deleteProductModel.setProductId(productId);
-		deleteProductModel.setProductDescription(productDescription);
-		deleteProductModel.setProductPrice(productPrice);
-		deleteProductModel.setProductCategory(productCategory);
-		deleteProductModel.setProductName(productName);
+		//deleteProductModel.setProductImageUrl(productImageUrl);
+		//deleteProductModel.setProductDescription(productDescription);
+		//deleteProductModel.setProductPrice(productPrice);
+		//deleteProductModel.setProductCategory(productCategory);
+		//deleteProductModel.setProductName(productName);
 		
      	 boolean verf2;
 		AdminServiceImpl adminService=new AdminServiceImpl(); 

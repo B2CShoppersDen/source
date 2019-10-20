@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class AdminOptionsView {
 
+	@SuppressWarnings("resource")
 	public void mainAdminOptionsView()
 	{
 		
@@ -27,11 +28,7 @@ public class AdminOptionsView {
 			case 3: ViewTransactionsView viewTransactionsView=new ViewTransactionsView();
 					viewTransactionsView.mainViewTransactionsView();
 					break;
-					
-					
-					
-					
-					
+									
 }
 }
 }

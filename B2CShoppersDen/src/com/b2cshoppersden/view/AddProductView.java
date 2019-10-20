@@ -6,13 +6,13 @@ import com.b2cshoppersden.controller.AdminController;
 
 public class AddProductView {
 
+	@SuppressWarnings("resource")
 	public void mainAddProductView() {
 		// TODO Auto-generated method stub
 	
 		Scanner sc=new Scanner(System.in);
 
 		System.out.println("======= Add Product View======");
-		
 		
 		System.out.println("Enter Product Image Url ");
 		String productImageUrl=sc.next();
@@ -32,8 +32,6 @@ public class AddProductView {
 		System.out.println("enter Product Name ");
 		String productName=sc.next();
 		
-	
-	
 	AdminController adminController=new AdminController();
 	adminController.addProduct(	productImageUrl, productId, productDescription, productPrice,productCategory, productName);	
 	
