@@ -97,14 +97,14 @@ public class CustomerDAO {
 		try {	
 			ConnectionManager connectionManager= new ConnectionManager();
 			Connection connection = connectionManager.openConnection1();
-			String query="insert into shoppingcart values(?,?,?,?,?,?)";
+			String query="insert into shoppingcart where product_name=?";
 			PreparedStatement statement = connection.prepareStatement(query);
 			statement.setString(1,addToCartModel.getProductName());
-			statement.setInt(2,addToCartModel.getProductId());
-			statement.setString(3,addToCartModel.getProductImageUrl());
-			statement.setString(4,addToCartModel.getProductDescription());
-			statement.setDouble(5,addToCartModel.getProductPrice());		
-			statement.setString(6,addToCartModel.getProductCategory());
+			//statement.setInt(2,addToCartModel.getProductId());
+			//statement.setString(3,addToCartModel.getProductImageUrl());
+			//statement.setString(4,addToCartModel.getProductDescription());
+			//statement.setDouble(5,addToCartModel.getProductPrice());		
+			//statement.setString(6,addToCartModel.getProductCategory());
 		          
 			statement.executeUpdate();
 	
@@ -125,15 +125,15 @@ public class CustomerDAO {
 		try {	
 			ConnectionManager connectionManager= new ConnectionManager();
 			Connection connection = connectionManager.openConnection1();
-			String query="select * from  product values(?,?,?,?,?,?)";
+			String query="select * from  product where product_name=?";
 			PreparedStatement statement = connection.prepareStatement(query);
 			statement.setString(1,viewCartProductsModel.getProductName());
-			statement.setInt(2,viewCartProductsModel.getProductId());
+			/*statement.setInt(2,viewCartProductsModel.getProductId());
 			statement.setString(3,viewCartProductsModel.getProductImageUrl());
 			statement.setString(4,viewCartProductsModel.getProductDescription());
 			statement.setDouble(5,viewCartProductsModel.getProductPrice());		
 			statement.setString(6,viewCartProductsModel.getProductCategory());
-			
+			*/
 			statement.executeUpdate();
 					statement.close();
 					} catch (SQLException e) {
