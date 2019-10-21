@@ -2,11 +2,18 @@ package com.b2cshoppersden.view;
 
 import java.util.Scanner;
 
+import org.apache.log4j.Logger;
+
 public class AdminOptionsView {
+	
+	Logger logger=Logger.getLogger(AdminOptionsView.class.getName());
 
 	@SuppressWarnings("resource")
 	public void mainAdminOptionsView()
 	{
+	
+	logger.info("Admin Options View started");
+	
 		
 		System.out.println("Select the option\n");
 		System.out.println("1.Add product");

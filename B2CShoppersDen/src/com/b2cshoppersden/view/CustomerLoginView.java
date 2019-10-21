@@ -3,12 +3,18 @@ package com.b2cshoppersden.view;
 
 import java.util.Scanner;
 
+import org.apache.log4j.Logger;
+
 import com.b2cshoppersden.controller.CustomerController;
     @SuppressWarnings("unused")
 		public class CustomerLoginView {
+    	  
+    	Logger logger=Logger.getLogger(CustomerLoginView.class.getName());
 
 			@SuppressWarnings("resource")
 			public void mainCustomerView() {
+				
+				logger.info("Customer login View started");
 			/*	CustomerLoginValidation addLoginValidation = new CustomerLoginValidation();
 				Scanner sc=new Scanner(System.in);
 				System.out.println("=======Customer View======");

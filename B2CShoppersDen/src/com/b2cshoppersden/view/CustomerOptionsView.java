@@ -2,11 +2,15 @@ package com.b2cshoppersden.view;
 
 import java.util.Scanner;
 
+import org.apache.log4j.Logger;
+
 
 public class CustomerOptionsView {
+	Logger logger=Logger.getLogger(CustomerOptionsView.class.getName());
 	
 	public void mainCustomerOptionsView()
 	{
+		logger.info("Customer Options View started");
 		
 		System.out.println("Select the option\n");
 		

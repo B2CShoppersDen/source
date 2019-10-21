@@ -2,13 +2,16 @@ package com.b2cshoppersden.view;
 
 import java.util.Scanner;
 
+import org.apache.log4j.Logger;
+
 import com.b2cshoppersden.controller.AdminController;
 
 public class DeleteProductView {
+	Logger logger=Logger.getLogger(DeleteProductView.class.getName());
 
 	public void mainDeleteProductView() {
 		// TODO Auto-generated method stub
-	
+		logger.info("Delete Product View started");
 			Scanner sc=new Scanner(System.in);
 
 			System.out.println("======= Delete Product View======");
