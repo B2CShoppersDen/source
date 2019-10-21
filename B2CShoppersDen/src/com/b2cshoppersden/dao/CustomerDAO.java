@@ -63,8 +63,8 @@ public class CustomerDAO {
 			Connection connection = connectionManager.openConnection1();
 			String query="select * from products where product_name=?";
 			PreparedStatement statement = connection.prepareStatement(query);
-			statement.setString(1,viewProductsModel.getProductName());
-			//statement.setInt(6,viewProductsModel.getProductId());
+			//statement.setString(1,viewProductsModel.getProductName());
+			statement.setInt(1,viewProductsModel.getProductId());
 			//statement.setString(2,viewProductsModel.getProductImageUrl());
 			//statement.setString(3,viewProductsModel.getProductDescription());
 			//statement.setDouble(4,viewProductsModel.getProductPrice());		
@@ -72,11 +72,12 @@ public class CustomerDAO {
 		
 			ResultSet resultSet = statement.executeQuery();
 	        while(resultSet.next()) {
-	        	viewProductsModel.setProductName(resultSet.getString("product_name"));
-	        	viewProductsModel.setProductCategory(resultSet.getString("product_category"));
-	        	viewProductsModel.setProductImageUrl(resultSet.getString("product_imageurl"));
-	        	viewProductsModel.setProductPrice(resultSet.getDouble("product_price"));
-	        	viewProductsModel.setProductDescription(resultSet.getString("product_description"));
+	        	viewProductsModel.setProductId(resultSet.getInt("product_id"));
+	        //viewProductsModel.setProductName(resultSet.getString("product_name"));
+	        	//viewProductsModel.setProductCategory(resultSet.getString("product_category"));
+	       // 	viewProductsModel.setProductImageUrl(resultSet.getString("product_imageurl"));
+	        //	viewProductsModel.setProductPrice(resultSet.getDouble("product_price"));
+	        //	viewProductsModel.setProductDescription(resultSet.getString("product_description"));
 	        }
 					statement.close();
 					} catch (SQLException e) {

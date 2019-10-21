@@ -52,15 +52,16 @@ public class CustomerController {
 
 	
 	
-	public void ViewProducts(String productImageUrl,int productId,String productDescription,double productPrice,String productCategory,String productName) {
+//	public void ViewProducts(String productImageUrl,int productId,String productDescription,double productPrice,String productCategory,String productName) {
 	// TODO Auto-generated method stub
-		ViewProductsModel viewProductsModel = new ViewProductsModel();
+	public void ViewProducts(int productId) {	
+	ViewProductsModel viewProductsModel = new ViewProductsModel();
 		viewProductsModel.setProductId(productId);
-		viewProductsModel.setProductImageUrl(productImageUrl);
-		viewProductsModel.setProductDescription(productDescription);
-		viewProductsModel.setProductPrice(productPrice);
-		viewProductsModel.setProductCategory(productCategory);
-		viewProductsModel.setProductName(productName);
+		//viewProductsModel.setProductImageUrl(productImageUrl);
+		//viewProductsModel.setProductDescription(productDescription);
+		//viewProductsModel.setProductPrice(productPrice);
+		//viewProductsModel.setProductCategory(productCategory);
+		//viewProductsModel.setProductName(productName);
 		
         boolean verf1;
 		CustomerService_Imp customerService=new CustomerService_Imp(); 
