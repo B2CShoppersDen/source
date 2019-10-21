@@ -5,21 +5,24 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import org.apache.log4j.Logger;
+
 import com.b2cshoppersden.model.AddToCartModel;
 import com.b2cshoppersden.model.CustomerLoginModel;
 import com.b2cshoppersden.model.DataModel;
 import com.b2cshoppersden.model.PaymentModel;
 import com.b2cshoppersden.model.ViewCartProductsModel;
 import com.b2cshoppersden.model.ViewProductsModel;
+import com.b2cshoppersden.service.AdminServiceImpl;
 import com.b2cshoppersden.utilities.ConnectionManager;
 
 public class CustomerDAO {
-     
+	Logger logger=Logger.getLogger(CustomerDAO.class.getName());
 	//@SuppressWarnings({ "static-access", "unused" })
 	//public modelClassName customerVerification(CustomerLoginModel customerLoginModel) throws ClassNotFoundException,SQLException{
 	public boolean customerVerification(CustomerLoginModel customerLoginModel) throws ClassNotFoundException,SQLException{
 		// TODO Auto-generated method stub
-	
+		logger.info("Admin dao called");
 		try 
 		{
 			String username;
@@ -49,6 +52,7 @@ public class CustomerDAO {
 			System.out.println("UserName or password is Incorrect");
 			e.printStackTrace();
 			}
+		logger.info("Admin dao completed");
 		return false; //return model
 }
 	
