@@ -40,7 +40,7 @@ public class DeleteProductView {
 		
 		
 		AdminController adminController=new AdminController();
-		//adminController.deleteProduct(productImageUrl, productId, productDescription,productPrice,productCategory, productName);	
+		
 		adminController.deleteProduct( productId);
 		logger.info("Delete Product View ended");
 	}
