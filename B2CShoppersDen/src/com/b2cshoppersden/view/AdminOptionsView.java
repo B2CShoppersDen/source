@@ -35,7 +35,10 @@ public class AdminOptionsView {
 			case 3: ViewTransactionsView viewTransactionsView=new ViewTransactionsView();
 					viewTransactionsView.mainViewTransactionsView();
 					break;
+					
+					
 									
-}
+		}
+		logger.info("Admin Options View ended");
 }
 }

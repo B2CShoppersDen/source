@@ -1,7 +1,12 @@
 package com.b2cshoppersden.model;
 
-public class RegisterCustomerModel {
+import org.apache.log4j.Logger;
 
+import com.b2cshoppersden.view.ViewTransactionsView;
+
+public class RegisterCustomerModel {
+	
+	
 	private String userName;
 	private String password;
 	private String email;

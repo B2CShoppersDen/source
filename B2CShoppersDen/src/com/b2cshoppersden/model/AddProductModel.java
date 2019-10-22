@@ -1,7 +1,12 @@
 package com.b2cshoppersden.model;
 
-public class AddProductModel {
+import org.apache.log4j.Logger;
 
+import com.b2cshoppersden.view.ViewTransactionsView;
+
+public class AddProductModel {
+	 
+	
 	private String productImageUrl;
 	private int productId;
 	private String productDescription;

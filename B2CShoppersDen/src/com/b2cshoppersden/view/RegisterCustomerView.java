@@ -2,15 +2,19 @@ package com.b2cshoppersden.view;
 
 import java.util.Scanner;
 
+import org.apache.log4j.Logger;
+
 import com.b2cshoppersden.controller.CustomerController;
 import com.b2cshoppersden.controller.RegisterCustomerController;
 
 
 
 public class RegisterCustomerView {
+	Logger logger=Logger.getLogger(RegisterCustomerView.class.getName());
 
 	public void mainRegisterCustomerView() {
 		// TODO Auto-generated method stub
+		logger.info("Register Customer View started");
 		
 		Scanner sc=new Scanner(System.in);
 
@@ -34,6 +38,9 @@ public class RegisterCustomerView {
 		
 		System.out.println("enter Gender");
 		String gender=sc.next();
+		
+		logger.info("Register Customer View ended");
+		
 		
 	
 	

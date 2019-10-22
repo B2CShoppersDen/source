@@ -1,6 +1,11 @@
 package com.b2cshoppersden.model;
 
+import org.apache.log4j.Logger;
+
+import com.b2cshoppersden.view.ViewTransactionsView;
+
 public class DataModel {
+	
 	
 	public boolean booleanStatus;
 	private String userName;

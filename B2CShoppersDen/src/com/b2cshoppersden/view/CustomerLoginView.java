@@ -54,6 +54,8 @@ import com.b2cshoppersden.controller.CustomerController;
 				CustomerController customerController=new CustomerController();
 				customerController.Verification(username,Password);
 				
+				logger.info("Customer login View ended");
+				
 			}
 
 			

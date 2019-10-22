@@ -1,5 +1,7 @@
 package com.b2cshoppersden.controller;
 
+import org.apache.log4j.Logger;
+
 import com.b2cshoppersden.model.AddProductModel;
 import com.b2cshoppersden.model.AdminLoginModel;
 import com.b2cshoppersden.model.DeleteProductModel;
@@ -13,10 +15,11 @@ import com.b2cshoppersden.view.ErrorView;
 import com.b2cshoppersden.view.ViewTransactionsView;
 
 public class AdminController {
+	Logger logger=Logger.getLogger(AdminController.class.getName());
 
 	public void Verification(String adminUserName, String password) {
 		// TODO Auto-generated method stub
-
+		logger.info("verification started");
 		AdminLoginModel adminLoginModel=new AdminLoginModel();
 		adminLoginModel.setAdminUserName(adminUserName);
 		adminLoginModel.setPassword(password);
@@ -43,7 +46,7 @@ public class AdminController {
 			System.out.println("User Authentication failed.");
 			//AdminLoginView adminLoginView=new AdminLoginView(); 
 			//adminLoginView.mainAdminView();
-		
+			logger.info("verification completed");
 		}
 		
 	}
@@ -51,6 +54,7 @@ public class AdminController {
 	//public void deleteProduct(String productImageUrl,int productId,String productDescription,double productPrice, String productCategory,String productName) 
 	public void deleteProduct(int productId)
 	{
+		logger.info("deleting product started");
 		// TODO Auto-generated method stub
 		DeleteProductModel deleteProductModel = new DeleteProductModel();																					
 		deleteProductModel.setProductId(productId);
@@ -82,14 +86,14 @@ public class AdminController {
 			System.out.println("Products are not deleted");
 			DeleteProductView deleteProductView=new DeleteProductView();
 			deleteProductView.mainDeleteProductView();
-	
+			logger.info("deleting product completed");
 		}
 		
 	}
 
 	public void addProduct(String productImageUrl,int productId,String productDescription,double productPrice,String productCategory,String productName) {
 		// TODO Auto-generated method stub
-
+		logger.info("adding product started");
 			AddProductModel addProductModel = new AddProductModel();
 			addProductModel.setProductImageUrl(productImageUrl);
 			addProductModel.setProductId(productId);
@@ -122,13 +126,14 @@ public class AdminController {
 				addProductView.mainAddProductView();
 		
 			}
+			logger.info("adding product completed");
 			
 	
 	}
 
 	public void viewTransactions(int transactionId, int paymentId, String paymentType) {
 		// TODO Auto-generated method stub
-		
+		logger.info("viewing transactions started");
 		ViewTransactionsModel viewTransactionsModel = new ViewTransactionsModel();
 		viewTransactionsModel.setTransactionId(transactionId);
 		viewTransactionsModel.setPaymentId(paymentId);
@@ -158,7 +163,7 @@ public class AdminController {
 			viewTransactionsView.mainViewTransactionsView();
 	
 		}
-	
+		logger.info("viewing transactions completed");
 	}
 }
 

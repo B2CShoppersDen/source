@@ -1,7 +1,12 @@
 package com.b2cshoppersden.model;
 
-public class AdminLoginModel {
+import org.apache.log4j.Logger;
 
+import com.b2cshoppersden.view.ViewTransactionsView;
+
+public class AdminLoginModel {
+	
+	
 	private int adminId;
 	private String adminUserName;
 	private String password;

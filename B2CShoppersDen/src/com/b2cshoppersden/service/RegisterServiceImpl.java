@@ -8,8 +8,10 @@ import com.b2cshoppersden.model.RegisterCustomerModel;
 public class RegisterServiceImpl implements RegisterService{
 
 	public boolean customerStoreVerification(RegisterCustomerModel registerCustomerModel) throws ClassNotFoundException,SQLException {
+		
 		RegistrationDAO dao=new RegistrationDAO();
 		// TODO Auto-generated method stub
+		logger.info("Register verification called");
 		boolean result=dao.customerStoreVerification(registerCustomerModel);
 		return result;
 	}	

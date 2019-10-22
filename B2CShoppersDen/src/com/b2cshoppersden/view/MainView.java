@@ -14,6 +14,7 @@ public class MainView {
 		logger.info("Main View started");
 		ConsoleUI ui=new ConsoleUI();
 		ui.mainMenu();
+		logger.info("Main View ended");
 		
 	}
 

@@ -24,13 +24,13 @@ public class AdminServiceImpl implements AdminService {
 
 	public boolean addProductVerification(AddProductModel addProductModel) throws ClassNotFoundException, SQLException {
 		// TODO Auto-generated method stub
-		
+		logger.info("addProductVerification called");
 		return adminDAO.addProductVerification(addProductModel);
 	}
 
 	public boolean deleteProductVerification(DeleteProductModel deleteProductModel) throws ClassNotFoundException, SQLException {
 		// TODO Auto-generated method stub
-		
+		logger.info("deleteProductVerification called");
 		return adminDAO.deleteProductVerification(deleteProductModel);
 	
 	}

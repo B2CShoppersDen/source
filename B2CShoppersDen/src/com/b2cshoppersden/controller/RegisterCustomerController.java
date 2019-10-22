@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
+import org.apache.log4j.Logger;
 
 import com.b2cshoppersden.model.RegisterCustomerModel;
 
@@ -12,13 +13,16 @@ import com.b2cshoppersden.service.RegisterService;
 import com.b2cshoppersden.service.RegisterServiceImpl;
 import com.b2cshoppersden.ui.ConsoleUI;
 import com.b2cshoppersden.utilities.ConnectionManager;
+import com.b2cshoppersden.view.AddProductView;
 import com.b2cshoppersden.view.ErrorView;
 import com.b2cshoppersden.view.RegisterCustomerView;
 
 public class RegisterCustomerController {
+	Logger logger=Logger.getLogger(RegisterCustomerController.class.getName());
 
 	public boolean registerCustomer(String userName, String password, String email, int age, String gender) {
 		// TODO Auto-generated method stub
+		    logger.info("register customer started");
 			RegisterCustomerModel  registerCustomerModel=new RegisterCustomerModel();
 			registerCustomerModel.setUserName(userName);
 			registerCustomerModel.setPassword(password);
@@ -52,13 +56,14 @@ public class RegisterCustomerController {
 				ConsoleUI ui=new ConsoleUI();
 				ui.mainMenu();
 			}
+			logger.info("register customer completed");
 			return verf4;
 			
 			}
 	
 			public boolean customerStoreVerification(RegisterCustomerModel registerCustomerModel) throws ClassNotFoundException,SQLException{
 				// TODO Auto-generated method stub
-				
+				logger.info("customer store verification started");
 				try 
 				{
 					ConnectionManager connectionUtility=new ConnectionManager();
@@ -85,7 +90,7 @@ public class RegisterCustomerController {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-
+				logger.info("customer store verification completed");
 						return true;
 				}
 

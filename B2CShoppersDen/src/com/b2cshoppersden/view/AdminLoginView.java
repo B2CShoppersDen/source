@@ -27,6 +27,8 @@ public class AdminLoginView {
 			
 			AdminController adminController=new AdminController();
 			adminController.Verification(adminUserName,password);
+			logger.info("Admin login View ended");
+
 			
 		}
 }

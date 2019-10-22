@@ -39,7 +39,7 @@ public class AddToCartView {
 	
 	CustomerController customerController=new CustomerController();
 	customerController.AddToCart(productImageUrl, productId, productDescription, productPrice,productCategory, productName);	
-	
+	logger.info("Add to Cart View ended");
 	}
 
 		

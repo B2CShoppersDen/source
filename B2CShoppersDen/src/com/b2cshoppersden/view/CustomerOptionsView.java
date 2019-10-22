@@ -37,8 +37,11 @@ public class CustomerOptionsView {
 			case 4:PaymentView paymentView=new PaymentView();
 			      paymentView.mainPaymentView();
 			      break;
+			      
+			     
 		
 		}
+		 logger.info("Customer Options View ended");
 		
 	}
 

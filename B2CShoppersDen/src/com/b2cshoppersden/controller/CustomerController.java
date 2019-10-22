@@ -2,13 +2,15 @@ package com.b2cshoppersden.controller;
 
 
 
+import org.apache.log4j.Logger;
+
 import com.b2cshoppersden.model.AddToCartModel;
 import com.b2cshoppersden.model.CustomerLoginModel;
 import com.b2cshoppersden.model.PaymentModel;
 import com.b2cshoppersden.model.ViewCartProductsModel;
 import com.b2cshoppersden.model.ViewProductsModel;
 import com.b2cshoppersden.service.CustomerService_Imp;
-
+import com.b2cshoppersden.view.AddProductView;
 import com.b2cshoppersden.view.CustomerLoginView;
 import com.b2cshoppersden.view.CustomerOptionsView;
 import com.b2cshoppersden.view.ErrorView;
@@ -16,10 +18,12 @@ import com.b2cshoppersden.view.PaymentView;
 import com.b2cshoppersden.view.ViewProductsView;
 
 public class CustomerController {
+	Logger logger=Logger.getLogger(CustomerController.class.getName());
 
 	public static void Verification(String userName, String password) {
-		// TODO Auto-generated method stub
 		
+		// TODO Auto-generated method stub
+	
 		CustomerLoginModel customerLoginModel=new CustomerLoginModel();
 		customerLoginModel.setUserName(userName);
 		customerLoginModel.setPassword(password);
@@ -48,6 +52,7 @@ public class CustomerController {
 			
 		
 		}
+		
 	}
 
 	
@@ -55,6 +60,7 @@ public class CustomerController {
 //	public void ViewProducts(String productImageUrl,int productId,String productDescription,double productPrice,String productCategory,String productName) {
 	// TODO Auto-generated method stub
 	public void ViewProducts(int productId) {	
+		logger.info("view products started");
 	ViewProductsModel viewProductsModel = new ViewProductsModel();
 		viewProductsModel.setProductId(productId);
 		//viewProductsModel.setProductImageUrl(productImageUrl);
@@ -86,6 +92,7 @@ public class CustomerController {
 			System.out.println("Invalid Selection");
 			
 		}
+		logger.info("view products completed");
 	
 	}
 	
@@ -95,6 +102,7 @@ public class CustomerController {
 	
 	
 	{
+		logger.info("add products started");
 		AddToCartModel addToCartModel = new AddToCartModel();
 		addToCartModel.setProductImageUrl(productImageUrl);
 		addToCartModel.setProductId(productId);
@@ -126,6 +134,7 @@ public class CustomerController {
 			System.out.println("Invalid Selection");
 			
 		}
+		logger.info("add products completed");
 	
 	}
 
@@ -134,6 +143,7 @@ public class CustomerController {
 		// TODO Auto-generated method stub
 		
 		{
+			logger.info("view cart products completed");
 			ViewCartProductsModel viewCartProductsModel = new ViewCartProductsModel();
 			viewCartProductsModel.setProductImageUrl(productImageUrl);
 			viewCartProductsModel.setProductId(productId);
@@ -165,6 +175,7 @@ public class CustomerController {
 				System.out.println("Invalid Selection");
 				
 			}
+			logger.info("view cart products completed");
 		
 		}
 

@@ -1,7 +1,12 @@
 package com.b2cshoppersden.model;
 
-public class PaymentModel {
+import org.apache.log4j.Logger;
 
+import com.b2cshoppersden.view.ViewTransactionsView;
+
+public class PaymentModel {
+	
+	
 	private String CardHolderName;
 	private long CreditCardNumber;
 	private int CVV;

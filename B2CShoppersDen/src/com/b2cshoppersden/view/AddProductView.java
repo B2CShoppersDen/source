@@ -36,7 +36,7 @@ public class AddProductView {
 		
 	AdminController adminController=new AdminController();
 	adminController.addProduct(	productImageUrl, productId, productDescription, productPrice,productCategory, productName);	
-	
+	logger.info("Add Product View ended");
 	}
 
 }
