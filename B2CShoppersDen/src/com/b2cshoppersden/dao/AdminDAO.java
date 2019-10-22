@@ -10,7 +10,6 @@ import com.b2cshoppersden.model.AdminLoginModel;
 import com.b2cshoppersden.model.DeleteProductModel;
 import com.b2cshoppersden.model.ViewTransactionsModel;
 import com.b2cshoppersden.utilities.ConnectionManager;
-import com.b2cshoppersden.view.AdminLoginView;
 
 
 public class AdminDAO {
@@ -18,16 +17,15 @@ public class AdminDAO {
 	@SuppressWarnings({ "static-access", "unused" })
 	public boolean adminVerification(AdminLoginModel adminLoginModel) throws ClassNotFoundException ,SQLException{
 		// TODO Auto-generated method stub
-		//String adminUserName1=null;
-		//String password1=null;
+		
 		try 
 		{
-			//ConnectionManager connectionUtility=new ConnectionManager();
+			
 			Connection connection=ConnectionManager.openConnection1();
 		
 			String query="SELECT * FROM ShoppersDen.admin WHERE admin_username='"+adminLoginModel.getAdminUserName() +"' AND admin_password= '"+adminLoginModel.getPassword()+"'";
 			
-			//String query1="select  admin_username,admin_password from admin ";
+			
 			PreparedStatement statement1=connection.prepareStatement(query);
 			ResultSet rs=statement1.executeQuery();
 			
@@ -35,7 +33,7 @@ public class AdminDAO {
 			{
 				String adminUserName=rs.getString("admin_username");
 				String password=rs.getString("admin_password");
-				//System.out.println(adminUserName+" "+password);
+				
 				return true;
 			}
 			rs.close();
@@ -57,7 +55,7 @@ public class AdminDAO {
 			Connection con=connectionManager.openConnection1();
 		
 			String querys = "INSERT INTO product VALUES(?,?,?,?,?,?)";
-		// set all the preparedstatement parameters
+	
 		PreparedStatement statement= con.prepareStatement(querys);
 
 		
@@ -71,7 +69,7 @@ public class AdminDAO {
 		
 		
 
-		// execute the preparedstatement insert
+	
 		statement.executeUpdate();
 
 		// st.close();
@@ -124,8 +122,7 @@ public class AdminDAO {
 			Connection connection=connectionManager.openConnection1();
 		
 			String querys = "select payment_id,payment_type,transaction_id from payment where payment_id=?";
-		// set all the preparedstatement parameters
-	
+		
 			PreparedStatement statement = connection.prepareStatement(querys);
 
 		//statement.setInt(1, viewTransactionsModel.getTransactionId());

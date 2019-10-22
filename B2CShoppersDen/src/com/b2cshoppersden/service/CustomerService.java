@@ -11,7 +11,6 @@ public interface CustomerService {
 	
 	
 	public boolean Verification(CustomerLoginModel customerLoginModel) throws ClassNotFoundException,SQLException;
-
 	public boolean viewProductsVerification(ViewProductsModel viewProductsModel) throws ClassNotFoundException,SQLException;
 	public boolean addToCartVerification(AddToCartModel addToCartModel) throws ClassNotFoundException,SQLException;
 	public boolean paymentVerification(PaymentModel paymentModel) throws ClassNotFoundException,SQLException;

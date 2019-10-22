@@ -15,7 +15,7 @@ public class AdminServiceImpl implements AdminService {
 
 	AdminDAO adminDAO=new AdminDAO();
 	Logger logger=Logger.getLogger(AdminServiceImpl.class.getName());
-	public boolean Verification(AdminLoginModel adminLoginModel) throws ClassNotFoundException, SQLException {
+	public boolean verification(AdminLoginModel adminLoginModel) throws ClassNotFoundException, SQLException {
 		// TODO Auto-generated method stub
 		logger.info("Verification called");
 		return adminDAO.adminVerification(adminLoginModel);

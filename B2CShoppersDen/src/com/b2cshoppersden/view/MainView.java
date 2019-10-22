@@ -1,7 +1,5 @@
 package com.b2cshoppersden.view;
 
-
-
 import org.apache.log4j.Logger;
 
 import com.b2cshoppersden.ui.ConsoleUI;

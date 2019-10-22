@@ -17,9 +17,10 @@ import com.b2cshoppersden.view.ViewTransactionsView;
 public class AdminController {
 	Logger logger=Logger.getLogger(AdminController.class.getName());
 
-	public void Verification(String adminUserName, String password) {
+	public void verification(String adminUserName, String password) {
 		// TODO Auto-generated method stub
 		logger.info("verification started");
+		
 		AdminLoginModel adminLoginModel=new AdminLoginModel();
 		adminLoginModel.setAdminUserName(adminUserName);
 		adminLoginModel.setPassword(password);
@@ -28,7 +29,7 @@ public class AdminController {
 	
 		try {
 	
-	verf=userService.Verification(adminLoginModel);	
+			verf=userService.verification(adminLoginModel);	
 	
 	System.out.println(verf);
 		
@@ -44,8 +45,6 @@ public class AdminController {
 		}catch(Exception e) {
 			e.printStackTrace();
 			System.out.println("User Authentication failed.");
-			//AdminLoginView adminLoginView=new AdminLoginView(); 
-			//adminLoginView.mainAdminView();
 			logger.info("verification completed");
 		}
 		

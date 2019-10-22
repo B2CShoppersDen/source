@@ -17,16 +17,14 @@ public class AdminLoginView {
 		logger.info("Admin login View started");
 			
 			Scanner sc=new Scanner(System.in);
-			System.out.println("**************");
 			System.out.println("======Admin View======");
-			System.out.println("**************");
 			System.out.println("enter username");
 			String adminUserName=sc.next();
 			System.out.println("enter password");
 			String password=sc.next();
 			
 			AdminController adminController=new AdminController();
-			adminController.Verification(adminUserName,password);
+			adminController.verification(adminUserName,password);
 			logger.info("Admin login View ended");
 
 			
